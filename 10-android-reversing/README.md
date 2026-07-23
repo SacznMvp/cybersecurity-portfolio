@@ -1,4 +1,4 @@
-#Práctica 10 · Seguridad Móvil en Android — Análisis, Reversing y Mitigación de Vulnerabilidades
+#Práctica 10 · Seguridad Móvil en Android — Análisis, Reversing y Mitigación de Vulnerabilidades 
 
 **Objetivo:** aplicar ingeniería inversa sobre una aplicación Android vulnerable (InsecureBankv2) para comprender su funcionamiento interno, identificar debilidades de diseño y proponer medidas de mitigación.
 
