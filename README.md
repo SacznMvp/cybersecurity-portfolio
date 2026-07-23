@@ -9,6 +9,7 @@ Cada carpeta documenta un laboratorio independiente: objetivo, herramientas util
 | # | Práctica | Tecnologías | Enlace |
 |---|---|---|---|
 | 14 | Despliegue de Red Corporativa con Active Directory | Windows Server 2016, Windows 10, Windows Server 2003, AD DS | [`14-directorio-activo/`](./14-directorio-activo) |
+| 11 | Seguridad en Aplicaciones Web — OWASP Juice Shop | Nmap, Gobuster, Nikto, Burp Suite, Kali Linux | [`11-owasp-juice-shop/`](./11-owasp-juice-shop) |
 | 10 | Seguridad Móvil en Android — Reversing y Mitigación | InsecureBankv2, APKTool, JADX-GUI, Kali Linux | [`10-android-reversing/`](https://github.com/SacznMvp/cybersecurity-portfolio/blob/main/10-android-reversing) |
  
 *(Se irán agregando más laboratorios conforme avance)*
