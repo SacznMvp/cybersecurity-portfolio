@@ -10,6 +10,7 @@ Cada carpeta documenta un laboratorio independiente: objetivo, herramientas util
 |---|---|---|---|
 | 14 | Despliegue de Red Corporativa con Active Directory | Windows Server 2016, Windows 10, Windows Server 2003, AD DS | [`14-directorio-activo/`](./14-directorio-activo) |
 | 13 | Apache II — Cifrado SSL y Análisis de Tráfico | Apache, OpenSSL, curl, Wireshark, Ubuntu | [`13-apache-ssl-wireshark/`](./13-apache-ssl-wireshark) |
+| 12 | Servidor Web Apache — Virtual Hosts y Backups | Apache, Ubuntu Server, VirtualBox | [`12-apache-vhost/`](./12-apache-vhost) |
 | 11 | Seguridad en Aplicaciones Web — OWASP Juice Shop | Nmap, Gobuster, Nikto, Burp Suite, Kali Linux | [`11-owasp-juice-shop/`](./11-owasp-juice-shop) |
 | 10 | Seguridad Móvil en Android — Reversing y Mitigación | InsecureBankv2, APKTool, JADX-GUI, Kali Linux | [`10-android-reversing/`](https://github.com/SacznMvp/cybersecurity-portfolio/blob/main/10-android-reversing) |
  
