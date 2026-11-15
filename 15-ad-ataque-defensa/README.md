@@ -2,6 +2,10 @@
 
 > 🚧 **Estado: planificada.** Esta carpeta es la guía de trabajo; los resultados, capturas e informe se agregarán al completar el laboratorio.
 
+| Nivel | Requisitos previos |
+|---|---|
+| 🔴 Avanzado | Práctica 14 y prácticas 1 a 5 |
+
 ## 📌 Objetivo
 
 Atacar el dominio `saczn.local` desplegado en la [práctica 14](../14-active-directory) con técnicas comunes de post-explotación en Active Directory, y documentar para cada una cómo se detecta y cómo se mitiga.
