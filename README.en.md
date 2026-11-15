@@ -39,8 +39,8 @@ Planned labs, ordered by difficulty. They are **not yet** completed; each guide 
 | # | Topic | Level | Status |
 |---|---|---|---|
 | 1 | [Virtual lab with VirtualBox and Kali](./01-laboratorio-virtual) | 🟢 | Planned · basis already visible in lab 14 |
-| 2 | [Linux command line and permissions](./02-linux-cli-permisos) | 🟢 | Planned |
-| 3 | [Networking and packet analysis](./03-redes-wireshark-tcpdump) | 🟢 | Planned · Wireshark already used in lab 13 |
+| 2 | [Linux command line and permissions](./02-linux-cli-permisos) | 🟢 | ✅ Done |
+| 3 | [Networking and packet analysis](./03-redes-wireshark-tcpdump) | 🟢 | ✅ Done (with tcpdump, no Wireshark — see note in the lab) |
 | 4 | [Reconnaissance with Nmap](./04-nmap-reconocimiento) | 🟡 | Planned · Nmap already used in lab 11 |
 | 5 | [Firewall with iptables and ufw](./05-firewall-iptables-ufw) | 🟡 | Planned |
 | 6 | Password cracking (Hashcat, John the Ripper) | 🟡 | Planned |
