@@ -42,6 +42,24 @@ Diseñar y desplegar una infraestructura de red corporativa simulada utilizando 
 - La coexistencia de un sistema legado (Windows Server 2003) con un DC moderno (2016) implica retos de compatibilidad de protocolos de autenticación, relevante para entender riesgos en redes corporativas reales que aún mantienen sistemas heredados.
 - La gestión centralizada vía AD reduce significativamente la superficie de administración manual, pero también concentra el riesgo: comprometer el DC equivale a comprometer todo el dominio.
 
+## 📸 Evidencia
+
+![Asistente de AD DS creando el bosque saczn.local](screenshots/asistente-ad-ds-saczn-local.jpg)
+*Revisión del asistente de AD DS: nuevo bosque `saczn.local`, NetBIOS `SACZN`, catálogo global y DNS.*
+
+![Equipos unidos al dominio](screenshots/equipos-unidos-al-dominio.jpg)
+*Contenedor Computers de `saczn.local` con el cliente Windows 10 y el servidor legado Windows Server 2003 ya unidos al dominio.*
+
+## 🎓 Lecciones aprendidas
+
+- El DNS correcto (el propio DC) es requisito para que un cliente localice el dominio y se una a él.
+- Mantener sistemas legados dentro del dominio obliga a aceptar protocolos de autenticación más débiles.
+- Concentrar la identidad en el DC simplifica la administración, pero también lo convierte en el objetivo principal.
+
+## ➡️ Siguiente paso
+
+Este entorno es la base para una práctica de ataque y defensa sobre AD (enumeración, Kerberoasting, Pass-the-Hash). Ver la [hoja de ruta](../README.md).
+
 ## 🗂️ Contenido de esta carpeta
 
 - `informe-practica14.pdf` — informe completo (metodología, capturas y conclusiones)

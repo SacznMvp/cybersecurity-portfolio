@@ -35,6 +35,18 @@ Aplicar ingeniería inversa sobre una aplicación Android deliberadamente vulner
  
 La ingeniería inversa con APKTool y JADX-GUI permite recuperar lógica de negocio crítica en minutos cuando una aplicación carece de ofuscación y protección de datos adecuada. La seguridad móvil efectiva requiere un modelo de defensa en profundidad: ofuscación, cifrado, protección de credenciales y detección en tiempo de ejecución (RASP).
  
+
+## 📸 Evidencia
+
+![Código de LoginActivity descompilado en JADX-GUI](screenshots/jadx-loginactivity.jpg)
+*JADX-GUI mostrando `LoginActivity` con nombres de clases y lógica legibles (sin ofuscación): se ve `MYPREFS`, el uso de `Base64` y la lectura de `is_admin`.*
+
+## 🎓 Lecciones aprendidas
+
+- Sin ofuscación, una APK se convierte en código Java legible en minutos: ocultar nombres no es seguridad, pero sí eleva el costo del atacante.
+- Lo que se guarda en el dispositivo (SharedPreferences) debe asumirse legible por quien tenga root.
+- La lógica de privilegios (`is_admin`) nunca debe decidirse en el cliente: tiene que validarse en el servidor.
+
 ---
 > ⚠️ Nota: práctica realizada en un entorno de laboratorio aislado, sobre una aplicación deliberadamente vulnerable (InsecureBankv2), con fines exclusivamente educativos.
  
