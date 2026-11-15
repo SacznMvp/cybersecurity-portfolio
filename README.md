@@ -39,8 +39,8 @@ Laboratorios planificados, ordenados por nivel de dificultad. Aún **no** están
 | # | Tema | Nivel | Estado |
 |---|---|---|---|
 | 1 | [Laboratorio virtual con VirtualBox y Kali](./01-laboratorio-virtual) | 🟢 | Planificada · base ya visible en la práctica 14 |
-| 2 | [Linux: línea de comandos y permisos](./02-linux-cli-permisos) | 🟢 | ✅ Realizada |
-| 3 | [Redes y análisis de paquetes](./03-redes-wireshark-tcpdump) | 🟢 | ✅ Realizada (con tcpdump, sin Wireshark — ver nota en la práctica) |
+| 2 | [Linux: línea de comandos y permisos](./02-linux-cli-permisos) | 🟢 | Planificada |
+| 3 | [Redes y análisis de paquetes](./03-redes-wireshark-tcpdump) | 🟢 | Planificada · Wireshark ya usado en la práctica 13 |
 | 4 | [Reconocimiento con Nmap](./04-nmap-reconocimiento) | 🟡 | Planificada · Nmap ya usado en la práctica 11 |
 | 5 | [Firewall con iptables y ufw](./05-firewall-iptables-ufw) | 🟡 | Planificada |
 | 6 | Cracking de contraseñas (Hashcat, John the Ripper) | 🟡 | Planificada |
