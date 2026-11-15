@@ -47,6 +47,11 @@ La ingeniería inversa con APKTool y JADX-GUI permite recuperar lógica de negoc
 - Lo que se guarda en el dispositivo (SharedPreferences) debe asumirse legible por quien tenga root.
 - La lógica de privilegios (`is_admin`) nunca debe decidirse en el cliente: tiene que validarse en el servidor.
 
+## 🗂️ Contenido de esta carpeta
+
+- `informe-practica10.pdf` — informe completo (metodología, capturas y conclusiones)
+- `screenshots/` — capturas clave
+
 ---
 > ⚠️ Nota: práctica realizada en un entorno de laboratorio aislado, sobre una aplicación deliberadamente vulnerable (InsecureBankv2), con fines exclusivamente educativos.
  
