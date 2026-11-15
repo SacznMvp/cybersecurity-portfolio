@@ -6,7 +6,7 @@ Hands-on cybersecurity labs built during my technical training. Each folder docu
 
 > **Profile:** cybersecurity student with hands-on experience in web auditing, mobile security, networking and Windows/Linux infrastructure. Targeting junior pentesting and defensive (SOC) roles.
 >
-> 📫 **Contact:** [GitHub @SacznMvp](https://github.com/SacznMvp) <!-- TODO: add LinkedIn / professional email -->
+> 📫 **Contact:** [GitHub @SacznMvp](https://github.com/SacznMvp) · 🎥 [YouTube channel](https://www.youtube.com/@SACZNCybersecurity) <!-- TODO: add LinkedIn / professional email -->
 
 ## 📂 Labs
 
