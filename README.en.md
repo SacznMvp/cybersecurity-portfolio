@@ -4,7 +4,7 @@
 
 Hands-on cybersecurity labs built during my technical training. Each folder documents an independent lab: objective, tools, methodology, findings, evidence and lessons learned. Lab write-ups are in Spanish; each one includes a PDF report with screenshots.
 
-> **Profile:** cybersecurity student with hands-on experience in web auditing, mobile security, networking and Windows/Linux infrastructure. Targeting junior pentesting and defensive (SOC) roles.
+> **Profile:** cybersecurity student with hands-on experience in web auditing, mobile security, networking and Windows/Linux infrastructure. Training oriented to offensive auditing, defense and incident response.
 >
 > 📫 **Contact:** [GitHub @SacznMvp](https://github.com/SacznMvp) · 🎥 [YouTube channel](https://www.youtube.com/@SACZNCybersecurity) <!-- TODO: add LinkedIn / professional email -->
 
@@ -25,8 +25,8 @@ Hands-on cybersecurity labs built during my technical training. Each folder docu
 | Web pentesting (OWASP Top 10) | [Lab 11](./11-owasp-juice-shop): recon, enumeration, JWT analysis, SQL injection |
 | Mobile security & reverse engineering | [Lab 10](./10-android-reversing): APK decompilation and static analysis |
 | Network traffic analysis | [Lab 13](./13-apache-ssl-wireshark): HTTP vs HTTPS capture comparison in Wireshark |
-| Applied cryptography (TLS/PKI) | [Lab 13](./13-apache-ssl-wireshark): OpenSSL certificates, TLS handshake |
-| Server hardening & administration | Labs [12](./12-apache-vhost) and [13](./13-apache-ssl-wireshark) |
+| TLS and certificates | [Lab 13](./13-apache-ssl-wireshark): self-signed certificate with OpenSSL, TLS handshake |
+| Web server administration | Labs [12](./12-apache-vhost) (Virtual Hosts and backups) and [13](./13-apache-ssl-wireshark) (HTTPS) |
 | Active Directory & Windows environments | [Lab 14](./14-active-directory): domain, users, legacy machines |
 | Technical writing | One PDF report per lab with methodology and screenshots |
 

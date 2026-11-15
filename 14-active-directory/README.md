@@ -12,13 +12,13 @@ Diseñar y desplegar una infraestructura de red corporativa simulada utilizando 
 | Windows Server 2016 | Controlador de Dominio (DC) |
 | Windows 10 | Estación de trabajo cliente |
 | Windows Server 2003 | Sistema legado dentro del dominio |
-| Active Directory Domain Services | Gestión de identidades y políticas |
+| Active Directory Domain Services | Gestión centralizada de identidades |
 
 ## 🌐 Topología
             ┌─────────────────────────┐
             │   Windows Server 2016   │
             │   Controlador de Dominio│
-            │      dominio.local      │
+            │       saczn.local       │
             └────────────┬────────────┘
                          │
           ┌──────────────┴──────────────┐
@@ -34,19 +34,20 @@ Diseñar y desplegar una infraestructura de red corporativa simulada utilizando 
 1. **Preparación del entorno** — instalación y configuración de red interna en VirtualBox para las tres máquinas virtuales.
 2. **Promoción a Controlador de Dominio** — instalación del rol AD DS en Windows Server 2016 y creación del dominio.
 3. **Unión de clientes al dominio** — incorporación de Windows 10 y Windows Server 2003, validando compatibilidad y comunicación con el DC.
-4. **Gestión de usuarios y políticas** — creación de unidades organizativas (OU), usuarios y aplicación de directivas de grupo (GPO) básicas.
-5. **Validación** — verificación de autenticación centralizada desde ambos clientes y revisión de logs del DC.
+4. **Gestión de usuarios** — creación de un usuario de dominio desde la consola *Usuarios y equipos de Active Directory*.
+5. **Validación** — inicio de sesión con la cuenta de dominio en ambos clientes (`whoami`) y comprobación de los equipos en el contenedor *Computers* del DC.
 
 ## 🔍 Hallazgos clave
 
-- La coexistencia de un sistema legado (Windows Server 2003) con un DC moderno (2016) implica retos de compatibilidad de protocolos de autenticación, relevante para entender riesgos en redes corporativas reales que aún mantienen sistemas heredados.
-- La gestión centralizada vía AD reduce significativamente la superficie de administración manual, pero también concentra el riesgo: comprometer el DC equivale a comprometer todo el dominio.
+- Un cliente legado (Windows Server 2003) se une sin problemas a un DC moderno (Windows Server 2016) y autentica con una cuenta de dominio: demuestra la madurez de LDAP/Kerberos.
+- Mantener ese tipo de sistemas en producción es un riesgo de seguridad considerable: no reciben soporte ni actualizaciones desde hace más de una década.
+- Recomendación del informe: segmentar en una VLAN aislada cualquier equipo legado que deba mantenerse por compatibilidad.
 
 ## 🎓 Lecciones aprendidas
 
 - El DNS correcto (el propio DC) es requisito para que un cliente localice el dominio y se una a él.
-- Mantener sistemas legados dentro del dominio obliga a aceptar protocolos de autenticación más débiles.
-- Concentrar la identidad en el DC simplifica la administración, pero también lo convierte en el objetivo principal.
+- Que un sistema legado funcione en el dominio no significa que sea seguro: la compatibilidad no sustituye al soporte y las actualizaciones.
+- La autenticación centralizada se verifica en cada cliente: `whoami` devuelve la cuenta de dominio (`saczn\...`).
 
 ## ➡️ Siguiente paso
 

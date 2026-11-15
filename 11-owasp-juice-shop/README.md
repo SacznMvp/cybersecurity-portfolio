@@ -47,12 +47,12 @@ El campo de email del formulario de login no sanea ni parametriza la entrada del
 
 | Hallazgo | Medida |
 |---|---|
-| Inyección SQL | Consultas parametrizadas / ORM, validación de entrada, WAF como capa extra |
-| Credenciales débiles | Política de contraseñas, bloqueo por intentos, MFA para cuentas administrativas |
-| Sin TLS | HTTPS obligatorio con HSTS |
-| `/ftp` expuesto | Restringir el acceso o eliminar el directorio del servidor público |
-| CORS permisivo | Lista blanca de orígenes en lugar de `*` |
-| Cabeceras ausentes | Configurar CSP, HSTS, Permissions-Policy y Referrer-Policy |
+| Inyección SQL | Consultas parametrizadas (prioridad inmediata) |
+| Credenciales débiles | Eliminar o forzar el cambio de credenciales administrativas por defecto |
+| Sin TLS | Implementar TLS/HTTPS en cualquier despliegue fuera de un laboratorio aislado |
+| `/ftp` expuesto | Restringir el acceso o eliminarlo si no es necesario en producción |
+| CORS permisivo | Configurar CORS de forma restrictiva, solo con los orígenes necesarios |
+| Cabeceras ausentes | Añadir Content-Security-Policy, Strict-Transport-Security, Permissions-Policy y Referrer-Policy |
 
 ## 🎓 Lecciones aprendidas
 
