@@ -14,7 +14,7 @@ Hands-on cybersecurity labs built during my technical training. Each folder docu
 |---|---|---|---|
 | 14 | [Corporate network with Active Directory](./14-active-directory) | Windows Server 2016/2003, Windows 10, AD DS, VirtualBox | Windows infrastructure |
 | 13 | [Apache II — SSL encryption and traffic analysis](./13-apache-ssl-wireshark) | Apache, OpenSSL, curl, Wireshark, Ubuntu | Networking & cryptography |
-| 12 | [Apache — Virtual Hosts and backups](./12-apache-vhost) | Apache, Ubuntu Server, VirtualBox | Server administration |
+| 12 | [Apache — Virtual Hosts and backups](./12-apache-vhost) | Apache, Ubuntu Desktop, VirtualBox | Server administration |
 | 11 | [Web security — OWASP Juice Shop](./11-owasp-juice-shop) | Nmap, Gobuster, Nikto, Burp Suite, Kali Linux | Web pentesting |
 | 10 | [Android mobile security — Reverse engineering](./10-android-reversing) | InsecureBankv2, APKTool, JADX-GUI, Kali Linux | Mobile security |
 
