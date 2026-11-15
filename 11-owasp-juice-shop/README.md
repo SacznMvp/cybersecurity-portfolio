@@ -42,13 +42,6 @@ El campo de email del formulario de login no sanea ni parametriza la entrada del
  
 **Recomendación:** sustituir la concatenación de cadenas por consultas parametrizadas o un ORM con bind parameters, aplicar validación estricta de entrada, y desplegar un WAF como capa de defensa adicional.
  
-## 📸 Evidencia
-
-![Burp Sequencer: entropía efectiva de 0 bits](screenshots/burp-sequencer-entropia.jpg)
-*Burp Sequencer sobre el JWT completo: resultado "extremely poor", 0 bits de entropía efectiva. El informe lo interpreta como una **limitación metodológica** (HEADER y PAYLOAD casi idénticos entre muestras) y **no como una vulnerabilidad**; para medirlo bien habría que analizar solo la firma.*
-
-![Respuesta del servidor con token JWT tras la inyección SQL](screenshots/sqli-respuesta-jwt.jpg)
-*Respuesta `200 OK` con token JWT válido para `admin@juice-sh.op` tras enviar `' OR 1=1--` como email.*
 
 ## 🛡️ Mitigación resumida
 

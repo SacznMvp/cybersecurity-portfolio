@@ -39,13 +39,6 @@ Configurar el cifrado SSL en el servidor web Apache y analizar mediante **curl**
  
 La comparación directa entre tráfico cifrado y sin cifrar deja en evidencia por qué HTTPS es un requisito no negociable para cualquier servicio que maneje datos de usuarios. El cifrado SSL/TLS garantiza confidencialidad, integridad y autenticación — sin él, cualquier observador en la red puede leer, capturar o modificar las comunicaciones con herramientas de uso común como Wireshark.
  
-## 📸 Evidencia
-
-![Captura Wireshark del tráfico HTTPS en el puerto 443](screenshots/wireshark-https-443.jpg)
-*HTTPS (443): se ve el Client Hello con SNI, pero el contenido viaja como `Application Data` cifrado.*
-
-![Captura Wireshark del tráfico HTTP en el puerto 80](screenshots/wireshark-http-80-texto-plano.jpg)
-*HTTP (80): `GET / HTTP/1.1` y la respuesta `200 OK` visibles en texto plano.*
 
 ## 🎓 Lecciones aprendidas
 

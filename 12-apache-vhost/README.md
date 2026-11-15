@@ -40,10 +40,6 @@ Montar y desplegar un servidor web Apache HTTP Server sobre una máquina virtual
  
 El despliegue de un servidor Apache va más allá de la instalación: requiere configurar Virtual Hosts correctamente, resolver advertencias de forma metódica, y — un aspecto frecuentemente pasado por alto — diseñar una estrategia de backups propia, ya que Apache no ofrece esta funcionalidad de forma nativa.
  
-## 📸 Evidencia
-
-![Sitio propio cargando desde el Virtual Host](screenshots/sitio-sacznweb-local.jpg)
-*El Virtual Host `sacznweb.local` sirviendo el sitio propio en lugar de la página por defecto de Apache.*
 
 ## 🎓 Lecciones aprendidas
 
