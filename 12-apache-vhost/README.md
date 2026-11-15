@@ -8,7 +8,7 @@ Montar y desplegar un servidor web Apache HTTP Server sobre una máquina virtual
  
 | Componente | Rol |
 |---|---|
-| Ubuntu Server (VirtualBox) | Sistema base del servidor |
+| Ubuntu Desktop (VirtualBox) | Sistema base del servidor |
 | Apache HTTP Server 2.4 | Servicio web |
 | Virtual Hosts | Alojamiento de sitio propio (`sacznweb.local`) |
  

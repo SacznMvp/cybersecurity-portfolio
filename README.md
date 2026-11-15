@@ -14,7 +14,7 @@ Laboratorios prácticos de ciberseguridad, desarrollados durante mi formación t
 |---|---|---|---|
 | 14 | [Red corporativa con Active Directory](./14-active-directory) | Windows Server 2016/2003, Windows 10, AD DS, VirtualBox | Infraestructura Windows |
 | 13 | [Apache II — Cifrado SSL y análisis de tráfico](./13-apache-ssl-wireshark) | Apache, OpenSSL, curl, Wireshark, Ubuntu | Redes y criptografía |
-| 12 | [Apache — Virtual Hosts y backups](./12-apache-vhost) | Apache, Ubuntu Server, VirtualBox | Administración de servidores |
+| 12 | [Apache — Virtual Hosts y backups](./12-apache-vhost) | Apache, Ubuntu Desktop, VirtualBox | Administración de servidores |
 | 11 | [Seguridad web — OWASP Juice Shop](./11-owasp-juice-shop) | Nmap, Gobuster, Nikto, Burp Suite, Kali Linux | Pentesting web |
 | 10 | [Seguridad móvil en Android — Reversing](./10-android-reversing) | InsecureBankv2, APKTool, JADX-GUI, Kali Linux | Seguridad móvil |
 
