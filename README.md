@@ -6,7 +6,7 @@ Laboratorios prácticos de ciberseguridad, desarrollados durante mi formación t
 
 > **Perfil:** estudiante de ciberseguridad con práctica en auditoría web, seguridad móvil, redes y administración de infraestructura Windows/Linux. Orientado a roles de pentesting junior y seguridad defensiva (SOC).
 >
-> 📫 **Contacto:** [GitHub @SacznMvp](https://github.com/SacznMvp) <!-- TODO: añadir enlace de LinkedIn / correo profesional -->
+> 📫 **Contacto:** [GitHub @SacznMvp](https://github.com/SacznMvp) · 🎥 [Canal de YouTube](https://www.youtube.com/@SACZNCybersecurity) <!-- TODO: añadir enlace de LinkedIn / correo profesional -->
 
 ## 📂 Laboratorios
 
