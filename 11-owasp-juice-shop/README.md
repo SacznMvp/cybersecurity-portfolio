@@ -42,6 +42,31 @@ El campo de email del formulario de login no sanea ni parametriza la entrada del
  
 **Recomendación:** sustituir la concatenación de cadenas por consultas parametrizadas o un ORM con bind parameters, aplicar validación estricta de entrada, y desplegar un WAF como capa de defensa adicional.
  
+## 📸 Evidencia
+
+![Burp Sequencer: entropía efectiva de 0 bits](screenshots/burp-sequencer-entropia.jpg)
+*Burp Sequencer sobre los tokens de sesión: calidad de aleatoriedad "extremely poor", 0 bits de entropía efectiva.*
+
+![Respuesta del servidor con token JWT tras la inyección SQL](screenshots/sqli-respuesta-jwt.jpg)
+*Respuesta `200 OK` con token JWT válido para `admin@juice-sh.op` tras enviar `' OR 1=1--` como email.*
+
+## 🛡️ Mitigación resumida
+
+| Hallazgo | Medida |
+|---|---|
+| Inyección SQL | Consultas parametrizadas / ORM, validación de entrada, WAF como capa extra |
+| Credenciales débiles | Política de contraseñas, bloqueo por intentos, MFA para cuentas administrativas |
+| Sin TLS | HTTPS obligatorio con HSTS |
+| `/ftp` expuesto | Restringir el acceso o eliminar el directorio del servidor público |
+| CORS permisivo | Lista blanca de orígenes en lugar de `*` |
+| Cabeceras ausentes | Configurar CSP, HSTS, Permissions-Policy y Referrer-Policy |
+
+## 🎓 Lecciones aprendidas
+
+- Un solo punto de inyección sin parametrizar puede comprometer la cuenta de administrador completa.
+- Los hallazgos de severidad media (CORS, cabeceras, `/ftp`) se encadenan: por separado parecen menores, juntos facilitan un ataque real.
+- Documentar por severidad ayuda a priorizar qué corregir primero.
+
 ## 🗂️ Contenido de esta carpeta
  
 - `informe-practica11.pdf` — informe completo (metodología, 13 capturas del proceso, análisis y conclusiones)
