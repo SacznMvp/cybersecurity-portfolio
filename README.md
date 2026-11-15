@@ -4,7 +4,7 @@
 
 Laboratorios prácticos de ciberseguridad, desarrollados durante mi formación técnica. Cada carpeta documenta un laboratorio independiente: objetivo, herramientas, metodología, hallazgos, evidencia y lecciones aprendidas.
 
-> **Perfil:** estudiante de ciberseguridad con práctica en auditoría web, seguridad móvil, redes y administración de infraestructura Windows/Linux. Orientado a roles de pentesting junior y seguridad defensiva (SOC).
+> **Perfil:** estudiante de ciberseguridad con práctica en auditoría web, seguridad móvil, redes y administración de infraestructura Windows/Linux. Formación orientada a auditoría ofensiva, defensa y respuesta a incidentes.
 >
 > 📫 **Contacto:** [GitHub @SacznMvp](https://github.com/SacznMvp) · 🎥 [Canal de YouTube](https://www.youtube.com/@SACZNCybersecurity) <!-- TODO: añadir enlace de LinkedIn / correo profesional -->
 
@@ -25,8 +25,8 @@ Laboratorios prácticos de ciberseguridad, desarrollados durante mi formación t
 | Pentesting web (OWASP Top 10) | [Práctica 11](./11-owasp-juice-shop): reconocimiento, enumeración, análisis de JWT, SQL injection |
 | Seguridad móvil e ingeniería inversa | [Práctica 10](./10-android-reversing): decompilación y análisis estático de APK |
 | Análisis de tráfico de red | [Práctica 13](./13-apache-ssl-wireshark): captura y comparación HTTP vs HTTPS en Wireshark |
-| Criptografía aplicada (TLS/PKI) | [Práctica 13](./13-apache-ssl-wireshark): certificados con OpenSSL, handshake TLS |
-| Hardening y administración de servidores | Prácticas [12](./12-apache-vhost) y [13](./13-apache-ssl-wireshark) |
+| TLS y certificados | [Práctica 13](./13-apache-ssl-wireshark): certificado autofirmado con OpenSSL, handshake TLS |
+| Administración de servidores web | Prácticas [12](./12-apache-vhost) (Virtual Hosts y backups) y [13](./13-apache-ssl-wireshark) (HTTPS) |
 | Active Directory y entornos Windows | [Práctica 14](./14-active-directory): dominio, usuarios, equipos legados |
 | Documentación técnica | Informe en PDF por práctica, con metodología y capturas |
 
