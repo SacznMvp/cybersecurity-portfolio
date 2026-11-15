@@ -63,7 +63,7 @@ Este entorno es la base para una práctica de ataque y defensa sobre AD (enumera
 ## 🗂️ Contenido de esta carpeta
 
 - `informe-practica14.pdf` — informe completo (metodología, capturas y conclusiones)
-- `screenshots/` — evidencia visual de cada fase
+- `screenshots/` — capturas clave (las 26 figuras completas están en el informe PDF)
 
 ---
 > ⚠️ Nota: todo el entorno fue desplegado en una red aislada de laboratorio (VirtualBox), sin conexión a redes de producción. Usuarios, contraseñas y nombres de dominio son ficticios y usados únicamente con fines educativos.

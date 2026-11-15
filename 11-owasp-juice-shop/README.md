@@ -45,7 +45,7 @@ El campo de email del formulario de login no sanea ni parametriza la entrada del
 ## 📸 Evidencia
 
 ![Burp Sequencer: entropía efectiva de 0 bits](screenshots/burp-sequencer-entropia.jpg)
-*Burp Sequencer sobre los tokens de sesión: calidad de aleatoriedad "extremely poor", 0 bits de entropía efectiva.*
+*Burp Sequencer sobre el JWT completo: resultado "extremely poor", 0 bits de entropía efectiva. El informe lo interpreta como una **limitación metodológica** (HEADER y PAYLOAD casi idénticos entre muestras) y **no como una vulnerabilidad**; para medirlo bien habría que analizar solo la firma.*
 
 ![Respuesta del servidor con token JWT tras la inyección SQL](screenshots/sqli-respuesta-jwt.jpg)
 *Respuesta `200 OK` con token JWT válido para `admin@juice-sh.op` tras enviar `' OR 1=1--` como email.*
@@ -66,6 +66,7 @@ El campo de email del formulario de login no sanea ni parametriza la entrada del
 - Un solo punto de inyección sin parametrizar puede comprometer la cuenta de administrador completa.
 - Los hallazgos de severidad media (CORS, cabeceras, `/ftp`) se encadenan: por separado parecen menores, juntos facilitan un ataque real.
 - Documentar por severidad ayuda a priorizar qué corregir primero.
+- Un resultado alarmante de una herramienta (Sequencer con 0 bits) hay que interpretarlo antes de reportarlo: aquí era un artefacto de cómo se configuró el análisis.
 
 ## 🗂️ Contenido de esta carpeta
  
