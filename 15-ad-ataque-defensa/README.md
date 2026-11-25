@@ -26,7 +26,7 @@ Atacar el dominio `saczn.local` desplegado en la [práctica 14](../14-active-dir
 2. **Enumeración** — usuarios, grupos y equipos del dominio; mapeo con BloodHound.
 3. **Kerberoasting** — solicitar tickets de servicio y crackear el hash offline.
 4. **Pass-the-Hash** — movimiento lateral con un hash NTLM obtenido en el laboratorio.
-5. **Detección** — eventos relevantes del DC (por ejemplo 4769, 4624, 4625) revisados en el Visor de eventos.
+5. **Detección** — revisar 4769 en el DC y 4624/4625 en el equipo correspondiente al inicio de sesión, según la auditoría habilitada. Correlacionar campos y contexto; un evento aislado no confirma una técnica. Preparar primero la [recogida y validación de eventos](../16-siem-wazuh/README.md).
 6. **Mitigación** — contraseñas largas en cuentas de servicio o gMSA, deshabilitar NTLM donde sea posible, modelo de administración por niveles.
 
 ## 📋 Plantilla del informe

@@ -1,54 +1,36 @@
-# Práctica 12 — Montaje y Despliegue de un Servidor Web Apache
- 
-## 📌 Objetivo
- 
-Montar y desplegar un servidor web Apache HTTP Server sobre una máquina virtual Ubuntu, configurando un sitio propio mediante Virtual Hosts, corrigiendo advertencias de configuración, y definiendo una estrategia razonada de copias de seguridad y restauración.
- 
-## 🧰 Stack y herramientas
- 
-| Componente | Rol |
-|---|---|
-| Ubuntu Desktop (VirtualBox) | Sistema base del servidor |
-| Apache HTTP Server 2.4 | Servicio web |
-| Virtual Hosts | Alojamiento de sitio propio (`sacznweb.local`) |
- 
-## ⚙️ Metodología
- 
-1. **Instalación de Apache** — vía APT, verificación de versión y estado del servicio.
-2. **Configuración de sitio propio** — creación del `DocumentRoot`, permisos y contenido inicial.
-3. **Virtual Host** — fichero de configuración dedicado con `ServerName`, logs y bloque de permisos independientes.
-4. **Corrección de advertencias** — resolución del aviso `AH00558` (FQDN) y configuración de resolución local del dominio vía `/etc/hosts`.
-5. **Verificación final** — carga exitosa del sitio propio en lugar de la página por defecto.
-6. **Estrategia de backups** — análisis razonado de qué respaldar y cómo, ante la ausencia de un módulo nativo de Apache para ello.
-## 🔍 Hallazgos clave
- 
-- Apache en Ubuntu se instala, arranca y se habilita automáticamente — a diferencia de Kali Linux, donde requiere activación manual del servicio.
-- La advertencia `AH00558` (FQDN no determinado) se resuelve declarando `ServerName` a nivel global en `apache2.conf`.
-- **Apache no incluye ningún módulo nativo de backups** — la copia de seguridad es responsabilidad de administración de sistemas, no del propio software.
-## 💾 Estrategia de copias de seguridad
- 
-| Elemento | Ubicación | Herramienta |
-|---|---|---|
-| Configuración de Apache | `/etc/apache2/` | `tar`, `rsync`, git |
-| Contenido web | `/var/www/` | `tar`, `rsync` |
-| Certificados SSL/TLS | `/etc/ssl/`, `/etc/letsencrypt/` | `tar`, `rsync` |
-| Logs | `/var/log/apache2/` | `logrotate` + copia periódica |
- 
-**Buenas prácticas aplicadas:** regla 3-2-1 de backups, versionado de configuración con git, verificación de sintaxis (`apache2ctl configtest`) tras cada restauración, y automatización con `cron`.
- 
-## 🧩 Conclusiones
- 
-El despliegue de un servidor Apache va más allá de la instalación: requiere configurar Virtual Hosts correctamente, resolver advertencias de forma metódica, y — un aspecto frecuentemente pasado por alto — diseñar una estrategia de backups propia, ya que Apache no ofrece esta funcionalidad de forma nativa.
- 
+# 12 · Apache: Virtual Hosts y recuperación
 
-## 🎓 Lecciones aprendidas
+**Estado:** despliegue documentado; backup automatizado y restauración en VM pendientes de validación.
 
-- Un Virtual Host dedicado separa configuración, logs y permisos de cada sitio.
-- Los avisos como `AH00558` no se ignoran: se entienden y se corrigen declarando `ServerName`.
-- Un servidor sin plan de backups y de restauración probado no está terminado.
+## Resultado documentado
 
-## 🗂️ Contenido de esta carpeta
- 
-- `informe-practica12.pdf` — informe completo (metodología, 7 capturas del proceso y estrategia de backups)
----
-> ⚠️ Nota: laboratorio realizado en un entorno aislado (VirtualBox), sobre el dominio ficticio `sacznweb.local`, con fines exclusivamente educativos.
+Apache 2.4.58 en Ubuntu virtualizado sirve el sitio `sacznweb.local` desde `/var/www/sacznweb`. Se activó un VirtualHost propio, se desactivó el sitio por defecto y se corrigió el aviso AH00558 mediante `ServerName localhost` global.
+
+## Archivos y procedimiento
+
+- [VirtualHost original transcrito](config/sacznweb.conf), basado en la captura de la página 6. Conserva `AllowOverride All` para reflejar el estado original.
+- [Plan de hardening y recuperación](VALIDACION.md), con cambios propuestos y criterios de aceptación.
+- [Script de backup](../tools/apache-backup/README.md), nueva herramienta para generar un archivo e inventario; no es evidencia de ejecución histórica.
+
+En una VM propia con Apache instalado, crear el DocumentRoot y el sitio, revisar la configuración, copiar el VirtualHost a `sites-available`, habilitarlo y ejecutar `apache2ctl configtest` antes de recargar. Resolver `sacznweb.local` hacia la IP de esa VM; `127.0.0.1` solo corresponde cuando el cliente está en la misma máquina.
+
+## Qué falta demostrar
+
+La sección de backup del PDF es una propuesta: no prueba cron, cumplimiento de la regla 3-2-1 ni una restauración. Para completar la ampliación, guardar una copia fuera del servidor y restaurar en una VM desechable, midiendo tiempo y verificando contenido y servicio.
+
+
+## Evidencia del informe original
+
+![Página 6: VirtualHost original con DocumentRoot y logs separados.](assets/pagina-06-1.png)
+
+Página 6: VirtualHost original con DocumentRoot y logs separados.
+
+![Página 9: sitio propio cargando en el dominio local.](assets/pagina-09-1.png)
+
+Página 9: sitio propio cargando en el dominio local.
+
+## Informe y trazabilidad
+
+[Leer informe original](informe-practica12.pdf) · [Notas de revisión técnica](../docs/REVISION-TECNICA.md) · [Portafolio](../README.md)
+
+Las imágenes son extracciones de las páginas indicadas en su nombre, sin recrear resultados. El PDF histórico conserva su redacción original; las precisiones de este README deben leerse junto a él.

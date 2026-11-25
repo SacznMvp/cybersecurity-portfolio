@@ -1,69 +1,50 @@
-# Práctica 11 — Seguridad en Aplicaciones Web (OWASP Juice Shop)
- 
-## 📌 Objetivo
- 
-Realizar una auditoría de seguridad completa sobre **OWASP Juice Shop**, una aplicación web deliberadamente vulnerable, aplicando una metodología equivalente a la de un pentest profesional (alineada con OWASP Testing Guide y PTES): reconocimiento, enumeración, análisis de cabeceras y cifrado, análisis de tokens de sesión, y explotación de vulnerabilidades.
- 
-## 🧰 Stack y herramientas
- 
-| Componente | Rol |
+# 11 · Seguridad web: OWASP Juice Shop
+
+**Estado:** evaluación de alcance limitado documentada. Correcciones y retest pendientes.
+
+## Alcance
+
+Instancia local de OWASP Juice Shop en Docker, accesible en `localhost:3000`, con Kali Linux, Nmap, Gobuster, Nikto, curl y Burp Suite Community. Se revisaron superficie HTTP, rutas, cabeceras y autenticación. No se afirma cobertura completa de OWASP WSTG o PTES.
+
+## Resultados y límites
+
+| Resultado | Evidencia / interpretación |
 |---|---|
-| Kali Linux | Sistema atacante |
-| OWASP Juice Shop (Docker) | Aplicación objetivo |
-| Nmap | Escaneo de puertos y servicios |
-| Gobuster | Fuzzing de directorios y archivos |
-| Nikto | Análisis automatizado de vulnerabilidades web |
-| Burp Suite Community Edition | Interceptación, Sequencer, explotación manual |
- 
-## ⚙️ Metodología
- 
-1. **Reconocimiento** — escaneo de puertos con Nmap y fingerprinting del servicio.
-2. **Enumeración** — fuzzing de directorios con Gobuster, revisión de `robots.txt` y `sitemap.xml`.
-3. **Análisis de cabeceras y cifrado** — revisión con curl y Nikto de cabeceras de seguridad y ausencia de TLS.
-4. **Análisis de tokens de sesión** — evaluación de entropía de JWT mediante Burp Sequencer.
-5. **Explotación** — bypass de autenticación vía credenciales débiles e inyección SQL.
-## 🔍 Hallazgos por severidad
- 
-| Severidad | Hallazgo |
-|---|---|
-| 🔴 Crítica | Inyección SQL en login con bypass de autenticación (`' OR 1=1--`) |
-| 🟠 Alta | Credenciales de administrador débiles/públicas |
-| 🟠 Alta | Ausencia total de cifrado de transporte (HTTP sin TLS) |
-| 🟡 Media | Directorio `/ftp` expuesto públicamente |
-| 🟡 Media | CORS configurado de forma permisiva (`Access-Control-Allow-Origin: *`) |
-| 🟡 Media | Cabeceras de seguridad ausentes (CSP, HSTS, Permissions-Policy, Referrer-Policy) |
-| 🟢 Baja | `sitemap.xml` mal configurado (sin impacto directo) |
- 
-## 💡 Vulnerabilidad destacada: Inyección SQL con bypass de autenticación
- 
-El campo de email del formulario de login no sanea ni parametriza la entrada del usuario. El payload `' OR 1=1--` neutraliza la verificación de contraseña, permitiendo autenticarse como el primer usuario de la base de datos (administrador) sin conocer ninguna credencial real.
- 
-**Clasificación:** CWE-89 · OWASP Top 10 A03:2021 — Injection
- 
-**Recomendación:** sustituir la concatenación de cadenas por consultas parametrizadas o un ORM con bind parameters, aplicar validación estricta de entrada, y desplegar un WAF como capa de defensa adicional.
- 
+| Bypass de autenticación por SQL injection | Petición, respuesta y sesión administrativa en páginas 17–19. [Caso de estudio](CASO-SQLI.md). |
+| Acceso con credenciales débiles del laboratorio | Documentado en páginas 15–16; no demuestra compromiso de sistemas externos. |
+| Servicio HTTP sin TLS | Configuración observada del laboratorio; el impacto depende de la exposición y de los datos transportados. |
+| `/ftp` accesible | Evaluar contenido y autorización prevista antes de asignar severidad. Una ruta accesible no implica por sí misma una fuga sensible. |
+| CORS con comodín y cabeceras ausentes | Observaciones para revisión contextual; no se asigna severidad automática. |
+| Respuestas 500 en varias rutas | Errores que requieren inspección; no prueban bypass de autorización ni redirección abierta. |
 
-## 🛡️ Mitigación resumida
+## Decisiones metodológicas
 
-| Hallazgo | Medida |
-|---|---|
-| Inyección SQL | Consultas parametrizadas (prioridad inmediata) |
-| Credenciales débiles | Eliminar o forzar el cambio de credenciales administrativas por defecto |
-| Sin TLS | Implementar TLS/HTTPS en cualquier despliegue fuera de un laboratorio aislado |
-| `/ftp` expuesto | Restringir el acceso o eliminarlo si no es necesario en producción |
-| CORS permisivo | Configurar CORS de forma restrictiva, solo con los orígenes necesarios |
-| Cabeceras ausentes | Añadir Content-Security-Policy, Strict-Transport-Security, Permissions-Policy y Referrer-Policy |
+- Gobuster necesitó excluir una longitud de respuesta del fallback SPA. Ese valor depende de la versión; volver a medirlo al reproducir.
+- Un resultado de entropía de Sequencer no valida la seguridad de un JWT, tampoco analizando solamente su firma. Revisar validación criptográfica, algoritmos permitidos y claims como expiración, emisor y audiencia cuando correspondan. [RFC 8725](https://www.rfc-editor.org/rfc/rfc8725.html).
+- CORS `*` puede ser correcto para recursos públicos. Documentar un acceso a datos sensibles antes de reportarlo como vulnerabilidad. [OWASP CORS](https://cheatsheetseries.owasp.org/cheatsheets/CORS_Security_Cheat_Sheet.html).
+- No se han medido puntuaciones CVSS ni demostrado cadenas de ataque entre cabeceras ausentes y otros hallazgos.
 
-## 🎓 Lecciones aprendidas
+## Enfoque defensivo
 
-- Un solo punto de inyección sin parametrizar puede comprometer la cuenta de administrador completa.
-- Los hallazgos de severidad media (CORS, cabeceras, `/ftp`) se encadenan: por separado parecen menores, juntos facilitan un ataque real.
-- Documentar por severidad ayuda a priorizar qué corregir primero.
-- Un resultado alarmante de una herramienta (Sequencer con 0 bits) hay que interpretarlo antes de reportarlo: aquí era un artefacto de cómo se configuró el análisis.
+Correlacionar autenticaciones con logs de aplicación, cambios de identidad y solicitudes anómalas. Un access log habitual no registra el cuerpo POST del login: la ausencia del payload en ese log no descarta SQL injection. Evitar registrar contraseñas o tokens para añadir visibilidad.
 
-## 🗂️ Contenido de esta carpeta
- 
-- `informe-practica11.pdf` — informe completo (metodología, 13 capturas del proceso, análisis y conclusiones)
----
-> ⚠️ Nota: la auditoría se realizó contra una instancia local de OWASP Juice Shop (contenedor Docker en `localhost:3000`), una aplicación oficialmente diseñada por OWASP para practicar pentesting web. Las credenciales y vulnerabilidades documentadas son propias de este entorno de laboratorio público.
- 
+
+## Evidencia del informe original
+
+![Página 5: enumeración de rutas, con exclusión del fallback SPA.](assets/pagina-05-1.png)
+
+Página 5: enumeración de rutas, con exclusión del fallback SPA.
+
+![Página 17: entrada de prueba en el formulario del laboratorio.](assets/pagina-17-1.png)
+
+Página 17: entrada de prueba en el formulario del laboratorio.
+
+![Página 19: sesión administrativa documentada después del bypass.](assets/pagina-19-1.png)
+
+Página 19: sesión administrativa documentada después del bypass.
+
+## Informe y trazabilidad
+
+[Leer informe original](informe-practica11.pdf) · [Notas de revisión técnica](../docs/REVISION-TECNICA.md) · [Portafolio](../README.md)
+
+Las imágenes son extracciones de las páginas indicadas en su nombre, sin recrear resultados. El PDF histórico conserva su redacción original; las precisiones de este README deben leerse junto a él.

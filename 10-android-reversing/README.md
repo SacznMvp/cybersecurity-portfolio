@@ -1,51 +1,52 @@
-# Práctica 10 — Seguridad Móvil en Android: Análisis, Reversing y Mitigación de Vulnerabilidades
- 
-## 📌 Objetivo
- 
-Aplicar ingeniería inversa sobre una aplicación Android deliberadamente vulnerable (**InsecureBankv2**) para comprender su funcionamiento interno, identificar debilidades de diseño y proponer medidas de mitigación acordes a buenas prácticas de seguridad móvil.
- 
-## 🧰 Stack y herramientas
- 
-| Componente | Rol |
+# 10 · Android: análisis estático de InsecureBankv2
+
+**Estado:** análisis documentado. Validación dinámica y retest de mitigaciones pendientes.
+
+## Objetivo y entorno
+
+Inspeccionar una APK deliberadamente vulnerable mediante APKTool y JADX-GUI, desde Kali Linux, y separar observaciones de código de impactos demostrados.
+
+## Procedimiento documentado
+
+1. Desensamblar la APK: `apktool d InsecureBankv2.apk -o InsecureBank_ficheros`.
+2. Abrir la APK con JADX-GUI e inspeccionar `com.android.insecurebankv2`, especialmente `LoginActivity`.
+3. Localizar referencias a preferencias, campos de usuario y decisiones de privilegios.
+
+## Qué permite concluir la evidencia
+
+| Observación | Interpretación y siguiente comprobación |
 |---|---|
-| Kali Linux | Entorno de análisis |
-| InsecureBankv2 | Aplicación Android objetivo (vulnerable por diseño) |
-| APKTool | Decompilación y desensamblado de la APK |
-| JADX-GUI | Análisis estático — descompilación a código Java |
- 
-## ⚙️ Metodología
- 
-1. **Decompilación con APKTool** — desensamblado de la APK objetivo (`apktool d InsecureBankv2.apk`), recuperando el `AndroidManifest.xml` legible y el bytecode Smali.
-2. **Análisis estático con JADX-GUI** — conversión directa de bytecode `.dex` a código fuente Java de alta fidelidad, permitiendo inspeccionar clases críticas de la aplicación (`LoginActivity`, `ChangePassword`, `DoTransfer`, `CryptoClass`, entre otras).
-## 🔍 Hallazgos clave
- 
-- **Credenciales en SharedPreferences** — datos de usuario almacenados en un archivo identificable y legible en dispositivos con acceso root.
-- **Ausencia de ofuscación** — nombres de clases, métodos y campos completamente legibles, exponiendo la lógica de negocio de forma inmediata.
-- **Imports criptográficos visibles** — uso de `javax.crypto.*` y `android.util.Base64` auditable en detalle desde el código descompilado.
-- **Control de flujo expuesto** — lógica condicional de privilegios (`is_admin`) visible y potencialmente manipulable.
-## 🛡️ Recomendaciones de mitigación
- 
-- Ofuscación de código con **R8 / ProGuard**
-- Gestión de secretos vía **Android Keystore System** (nunca embebidos en el código)
-- Cifrado de datos locales con **AES-256-GCM** (`EncryptedSharedPreferences`)
-- **Certificate Pinning** para prevenir ataques MitM
-- **RASP** (Runtime Application Self-Protection) para detectar root, emuladores o modificaciones del APK
-- Verificación de integridad con **Play Integrity API**
-## 🧩 Conclusiones
- 
-La ingeniería inversa con APKTool y JADX-GUI permite recuperar lógica de negocio crítica en minutos cuando una aplicación carece de ofuscación y protección de datos adecuada. La seguridad móvil efectiva requiere un modelo de defensa en profundidad: ofuscación, cifrado, protección de credenciales y detección en tiempo de ejecución (RASP).
- 
+| `MYPREFS = "mySharedPreferences"` en `LoginActivity` | Identifica un almacén; no demuestra por sí solo qué credenciales contiene ni su protección. Rastrear escritura/lectura y revisar el archivo en el emulador. |
+| Clases y métodos legibles | Facilita el análisis. La ausencia de ofuscación no demuestra acceso no autorizado. |
+| Imports `javax.crypto` y `Base64` | Indican código que revisar; no prueban una implementación criptográfica vulnerable. |
+| Referencia a `is_admin` descrita en el informe | Hipótesis para verificar: comprobar si el servidor rechaza operaciones de un usuario sin privilegios, incluso si se altera el cliente. |
 
-## 🎓 Lecciones aprendidas
+## Mitigaciones propuestas
 
-- Sin ofuscación, una APK se convierte en código Java legible en minutos: ocultar nombres no es seguridad, pero sí eleva el costo del atacante.
-- Lo que se guarda en el dispositivo (SharedPreferences) debe asumirse legible por quien tenga root.
-- La lógica de privilegios (`is_admin`) nunca debe decidirse en el cliente: tiene que validarse en el servidor.
+Validar autorización en el servidor; minimizar datos sensibles persistidos y evitar almacenar contraseñas. Si se necesita cifrado local, diseñar la gestión de claves con Android Keystore y un modo autenticado apropiado. Ofuscación e integridad son capas adicionales, no sustitutos de autorización.
 
-## 🗂️ Contenido de esta carpeta
+La recomendación histórica de `EncryptedSharedPreferences` requiere actualización: la API está [deprecada](https://developer.android.com/reference/androidx/security/crypto/EncryptedSharedPreferences). Esto no significa que guardar secretos sin protección en preferencias sea una alternativa válida. Pinning/RASP requieren evaluar compatibilidad, mantenimiento y modelo de amenazas; no se han implementado en esta práctica.
 
-- `informe-practica10.pdf` — informe completo (metodología, capturas y conclusiones)
+## Siguiente evidencia por completar
 
----
-> ⚠️ Nota: práctica realizada en un entorno de laboratorio aislado, sobre una aplicación deliberadamente vulnerable (InsecureBankv2), con fines exclusivamente educativos.
- 
+- Registrar versión y SHA-256 de la APK.
+- Añadir ubicación exacta del método de escritura y lectura de datos sensibles.
+- Ejecutar una prueba controlada de autorización y documentar resultado esperado/observado.
+- Repetir la prueba después de una corrección en un entorno modificable.
+
+
+## Evidencia del informe original
+
+![Página 3: APKTool completa la extracción de recursos y bytecode.](assets/pagina-03-1.png)
+
+Página 3: APKTool completa la extracción de recursos y bytecode.
+
+![Página 5: LoginActivity visible en JADX; punto de partida para rastrear el uso de preferencias.](assets/pagina-05-1.png)
+
+Página 5: LoginActivity visible en JADX; punto de partida para rastrear el uso de preferencias.
+
+## Informe y trazabilidad
+
+[Leer informe original](informe-practica10.pdf) · [Notas de revisión técnica](../docs/REVISION-TECNICA.md) · [Portafolio](../README.md)
+
+Las imágenes son extracciones de las páginas indicadas en su nombre, sin recrear resultados. El PDF histórico conserva su redacción original; las precisiones de este README deben leerse junto a él.

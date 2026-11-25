@@ -1,53 +1,44 @@
-# Práctica 13 — Montaje y Configuración de Apache II: Cifrado SSL y Análisis de Tráfico
- 
-## 📌 Objetivo
- 
-Configurar el cifrado SSL en el servidor web Apache y analizar mediante **curl** y **Wireshark** el tráfico intercambiado entre cliente y servidor, tanto en escenario cifrado (HTTPS) como sin cifrar (HTTP), evidenciando el impacto real de operar sin TLS.
- 
-## 🧰 Stack y herramientas
- 
-| Componente | Rol |
+# 13 · Apache: TLS y análisis de tráfico
+
+**Estado:** HTTPS y comparación de tráfico documentados. Configuración de endurecimiento propuesta pendiente de validar.
+
+## Entorno y resultado
+
+Ubuntu 24, Apache, OpenSSL y Wireshark 4.2.2. El sitio `sacznweb.local` usa un certificado autofirmado de laboratorio. Las capturas se realizaron en loopback (`127.0.0.1`), no sobre tráfico de terceros.
+
+## Interpretación de la evidencia
+
+| Observación | Conclusión y límite |
 |---|---|
-| Ubuntu 24 (VirtualBox) | Servidor Apache |
-| OpenSSL | Generación del certificado autofirmado |
-| Apache (mod_ssl) | Servicio HTTPS en el dominio `sacznweb.local` |
-| curl | Inspección del handshake TLS a nivel de aplicación |
-| Wireshark 4.2.2 | Captura y análisis de tráfico a nivel de paquete |
- 
-## ⚙️ Metodología
- 
-1. **Generación del certificado autofirmado** — par clave/certificado RSA de 2048 bits con OpenSSL, CN=`sacznweb.local`.
-2. **Configuración del VirtualHost SSL** — habilitación de módulos `ssl` y `headers`, VirtualHost en el puerto 443.
-3. **Verificación en navegador** — confirmación de advertencia esperada por certificado autofirmado y carga correcta del sitio sobre HTTPS.
-4. **Análisis con curl** — inspección del handshake TLS: cipher suite, subject/issuer del certificado, fechas de validez.
-5. **Análisis con Wireshark** — captura comparativa de tráfico HTTPS (puerto 443) vs. HTTP sin cifrar (puerto 80).
-## 🔍 Hallazgos clave
- 
-- **Tráfico HTTPS (443):** el handshake TLS completo es visible (Client Hello con SNI, Server Hello), pero el contenido de la aplicación viaja como *Application Data* completamente cifrado e ilegible.
-- **Tráfico HTTP (80):** las peticiones y respuestas viajan en texto plano — el `GET / HTTP/1.1` y sus cabeceras son perfectamente legibles para cualquiera con acceso a la red.
-- **Certificado autofirmado:** subject e issuer coinciden (self-signed), válido por un año — adecuado para laboratorio, pero requeriría una CA pública (ej. Let's Encrypt) en producción.
-## ⚠️ Consecuencias de operar sin cifrado
- 
-| Riesgo | Descripción |
-|---|---|
-| Robo de credenciales | Formularios de login por HTTP exponen usuario/contraseña en texto plano |
-| Session hijacking | Cookies de sesión capturables e inyectables para suplantar al usuario |
-| Inyección de contenido | Un atacante en la red puede modificar respuestas HTTP en tránsito |
-| Exposición de metadata | Headers HTTP revelan SO, navegador y comportamiento del usuario |
- 
-## 🧩 Conclusiones
- 
-La comparación directa entre tráfico cifrado y sin cifrar deja en evidencia por qué HTTPS es un requisito no negociable para cualquier servicio que maneje datos de usuarios. El cifrado SSL/TLS garantiza confidencialidad, integridad y autenticación — sin él, cualquier observador en la red puede leer, capturar o modificar las comunicaciones con herramientas de uso común como Wireshark.
- 
+| GET y cabeceras visibles por HTTP | El contenido HTTP es legible para quien puede capturar ese tráfico. Estar en la misma red no garantiza por sí solo esa capacidad. |
+| Registros TLS y Application Data por HTTPS | El contenido está cifrado en la captura sin claves de sesión. |
+| ClientHello y ServerHello visibles | No significa que todo el handshake sea legible: en TLS 1.3 parte está cifrada. |
+| SNI visible en esta captura | Describe este caso; no generaliza a conexiones que utilicen ECH. |
+| Certificado autofirmado y uso de `curl -k` | La prueba histórica omitió la validación de confianza; no demuestra autenticación fiable del servidor. |
 
-## 🎓 Lecciones aprendidas
+La captura de la página 9 contiene registros identificados como TLS 1.3. Para confirmar la versión negociada en una nueva ejecución, registrar `ServerHello` y la salida completa de `curl -v`; no deducirla solamente del campo de versión legado del ClientHello.
 
-- Comparar el mismo servicio con y sin TLS en Wireshark muestra el riesgo con evidencia y no solo con teoría.
-- Un certificado autofirmado cifra igual, pero no autentica: en producción hace falta una CA reconocida.
-- El SNI viaja en claro incluso en HTTPS: el cifrado protege el contenido, no toda la metadata.
+## Reproducción y mejora
 
-## 🗂️ Contenido de esta carpeta
- 
-- `informe-practica13.pdf` — informe completo (metodología, 14 capturas del proceso y conclusiones)
----
-> ⚠️ Nota: laboratorio realizado en un entorno aislado (VirtualBox), sobre el dominio ficticio `sacznweb.local` con certificado autofirmado, con fines exclusivamente educativos.
+[Configuración TLS propuesta](config/sacznweb-ssl.conf) · [Guía de validación](VALIDACION.md)
+
+Un certificado autofirmado puede autenticar al servidor si se establece su confianza por un canal fiable y se verifica el nombre. En esta ampliación se propone un certificado con SAN y `curl --cacert`, sin omitir la verificación. Para un sitio público se necesita una cadena de confianza adecuada para sus clientes; una PKI privada puede servir en entornos administrados.
+
+Referencias: [TLS 1.3](https://www.rfc-editor.org/rfc/rfc8446.html) · [Apache mod_ssl](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html).
+
+
+## Evidencia del informe original
+
+![Página 9: intercambio TLS con datos de aplicación cifrados.](assets/pagina-09-1.png)
+
+Página 9: intercambio TLS con datos de aplicación cifrados.
+
+![Página 11: petición HTTP y cabeceras legibles en la captura.](assets/pagina-11-2.png)
+
+Página 11: petición HTTP y cabeceras legibles en la captura.
+
+## Informe y trazabilidad
+
+[Leer informe original](informe-practica13.pdf) · [Notas de revisión técnica](../docs/REVISION-TECNICA.md) · [Portafolio](../README.md)
+
+Las imágenes son extracciones de las páginas indicadas en su nombre, sin recrear resultados. El PDF histórico conserva su redacción original; las precisiones de este README deben leerse junto a él.

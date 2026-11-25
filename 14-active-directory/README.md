@@ -1,61 +1,53 @@
-# Práctica 14 — Despliegue de Red Corporativa con Active Directory
+# 14 · Active Directory: identidades e infraestructura
 
-## 📌 Objetivo
+**Estado:** dominio y clientes documentados. GPO, recogida centralizada de eventos y detecciones pendientes.
 
-Diseñar y desplegar una infraestructura de red corporativa simulada utilizando **Active Directory** sobre un entorno virtualizado, aplicando conceptos de administración de dominios, gestión centralizada de usuarios y coexistencia de sistemas operativos de distintas generaciones dentro de un mismo dominio.
+## Resultado y arquitectura
 
-## 🧰 Stack y herramientas
+Despliegue de `saczn.local` en la red interna VirtualBox `SacznRed`. Direccionamiento extraído del informe original (páginas 2, 8, 16 y 20).
 
-| Componente | Rol |
-|---|---|
-| VirtualBox | Virtualización de la infraestructura |
-| Windows Server 2016 | Controlador de Dominio (DC) |
-| Windows 10 | Estación de trabajo cliente |
-| Windows Server 2003 | Sistema legado dentro del dominio |
-| Active Directory Domain Services | Gestión centralizada de identidades |
+```mermaid
+flowchart TB
+    subgraph lab["SacznRed · red interna VirtualBox · 192.168.1.0/24"]
+        dc["Windows Server 2016 · DC / DNS<br/>192.168.1.1 · saczn.local"]
+        w10["Windows 10 · cliente<br/>192.168.1.10 · DNS 192.168.1.1"]
+        old["Windows Server 2003 · legado<br/>192.168.1.20 · DNS 192.168.1.1"]
+        w10 -->|"DNS / autenticación"| dc
+        old -->|"DNS / autenticación"| dc
+    end
+```
 
-## 🌐 Topología
-            ┌─────────────────────────┐
-            │   Windows Server 2016   │
-            │   Controlador de Dominio│
-            │       saczn.local       │
-            └────────────┬────────────┘
-                         │
-          ┌──────────────┴──────────────┐
-          │                              │
- ┌────────▼────────┐          ┌─────────▼─────────┐
- │   Windows 10     │          │ Windows Server 2003│
- │  Cliente unido    │          │  Sistema legado     │
- │   al dominio       │          │  unido al dominio    │
- └───────────────────┘          └─────────────────────┘
+La red interna documentada no tiene salida al host ni a Internet. La puerta de enlace indicada en el cliente legado no demuestra que el DC haga enrutamiento. Este laboratorio de compatibilidad no es una arquitectura recomendada de producción.
 
-## ⚙️ Fases del laboratorio
+## Evidencia de validación
 
-1. **Preparación del entorno** — instalación y configuración de red interna en VirtualBox para las tres máquinas virtuales.
-2. **Promoción a Controlador de Dominio** — instalación del rol AD DS en Windows Server 2016 y creación del dominio.
-3. **Unión de clientes al dominio** — incorporación de Windows 10 y Windows Server 2003, validando compatibilidad y comunicación con el DC.
-4. **Gestión de usuarios** — creación de un usuario de dominio desde la consola *Usuarios y equipos de Active Directory*.
-5. **Validación** — inicio de sesión con la cuenta de dominio en ambos clientes (`whoami`) y comprobación de los equipos en el contenedor *Computers* del DC.
+- Roles AD DS y DNS instalados y dominio creado.
+- Cuenta `scg` creada en el dominio.
+- Windows 10: `whoami` devuelve `saczn\administrador` (página 19). No acredita una sesión de la cuenta estándar `scg` en ese equipo.
+- Windows Server 2003: `whoami` devuelve `saczn\scg` (página 23).
+- Ambos equipos aparecen en el contenedor Computers (página 24).
 
-## 🔍 Hallazgos clave
+Que los clientes se hayan unido en esta configuración no demuestra compatibilidad universal ni identifica por sí solo el protocolo de cada autenticación. Los sistemas legados deben mantenerse acotados al ejercicio; añadir un cliente con soporte vigente para las nuevas pruebas defensivas.
 
-- Un cliente legado (Windows Server 2003) se une sin problemas a un DC moderno (Windows Server 2016) y autentica con una cuenta de dominio: demuestra la madurez de LDAP/Kerberos.
-- Mantener ese tipo de sistemas en producción es un riesgo de seguridad considerable: no reciben soporte ni actualizaciones desde hace más de una década.
-- Recomendación del informe: segmentar en una VLAN aislada cualquier equipo legado que deba mantenerse por compatibilidad.
+## Ampliación SOC / Blue Team
 
-## 🎓 Lecciones aprendidas
+1. [Aplicar y comprobar una GPO en una OU de prueba](GPO-VALIDACION.md).
+2. [Recoger y analizar eventos con Wazuh](../16-siem-wazuh/README.md).
+3. Continuar con [ataque y defensa](../15-ad-ataque-defensa/README.md) cuando exista telemetría verificable.
 
-- El DNS correcto (el propio DC) es requisito para que un cliente localice el dominio y se una a él.
-- Que un sistema legado funcione en el dominio no significa que sea seguro: la compatibilidad no sustituye al soporte y las actualizaciones.
-- La autenticación centralizada se verifica en cada cliente: `whoami` devuelve la cuenta de dominio (`saczn\...`).
 
-## ➡️ Siguiente paso
+## Evidencia del informe original
 
-Este entorno es la base para una práctica de ataque y defensa sobre AD (enumeración, Kerberoasting, Pass-the-Hash). Ver la [hoja de ruta](../README.md).
+![Página 19: sesión de administrador de dominio en Windows 10.](assets/pagina-19-1.png)
 
-## 🗂️ Contenido de esta carpeta
+Página 19: sesión de administrador de dominio en Windows 10.
 
-- `informe-practica14.pdf` — informe completo (metodología, capturas y conclusiones)
+![Página 24: ambos clientes registrados como objetos de equipo en el dominio.](assets/pagina-24-1.png)
 
----
-> ⚠️ Nota: todo el entorno fue desplegado en una red aislada de laboratorio (VirtualBox), sin conexión a redes de producción. Usuarios, contraseñas y nombres de dominio son ficticios y usados únicamente con fines educativos.
+Página 24: ambos clientes registrados como objetos de equipo en el dominio.
+
+## Informe y trazabilidad
+
+[Leer informe original](informe-practica14.pdf) · [Notas de revisión técnica](../docs/REVISION-TECNICA.md) · [Portafolio](../README.md)
+
+Las imágenes son extracciones de las páginas indicadas en su nombre, sin recrear resultados. El PDF histórico conserva su redacción original; las precisiones de este README deben leerse junto a él.
