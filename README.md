@@ -1,60 +1,44 @@
-# 🛡️ Cybersecurity Portfolio — SACZN
+# SACZN | Portafolio de ciberseguridad
 
-🌐 **Español** · [English](./README.en.md)
+**SOC / Blue Team junior · Análisis de registros · Redes · Windows y Linux**
 
-Laboratorios prácticos de ciberseguridad, desarrollados durante mi formación técnica. Cada carpeta documenta un laboratorio independiente: objetivo, herramientas, metodología, hallazgos, evidencia y lecciones aprendidas.
+[English](README.en.md) · [Ruta de aprendizaje](ROADMAP.md) · [GitHub](https://github.com/SacznMvp) · [YouTube](https://www.youtube.com/@SACZNCybersecurity)
 
-> **Perfil:** estudiante de ciberseguridad con práctica en auditoría web, seguridad móvil, redes y administración de infraestructura Windows/Linux. Formación orientada a auditoría ofensiva, defensa y respuesta a incidentes.
->
-> 📫 **Contacto:** [GitHub @SacznMvp](https://github.com/SacznMvp) · 🎥 [Canal de YouTube](https://www.youtube.com/@SACZNCybersecurity) <!-- TODO: añadir enlace de LinkedIn / correo profesional -->
+Soy estudiante de ciberseguridad y desarrollo laboratorios para comprender cómo funcionan los sistemas, reconocer riesgos y documentar su defensa. Mi objetivo profesional es incorporarme a un equipo SOC / Blue Team junior.
 
-## 📂 Laboratorios realizados
+**Estado:** 5 laboratorios con informe · 14 prácticas planificadas en la ruta original · 1 herramienta Python adicional.
 
-| # | Práctica | Tecnologías | Categoría | Nivel |
-|---|---|---|---|---|
-| 14 | [Red corporativa con Active Directory](./14-active-directory) | Windows Server 2016/2003, Windows 10, AD DS, VirtualBox | Infraestructura Windows | 🟠 |
-| 13 | [Apache II — Cifrado SSL y análisis de tráfico](./13-apache-ssl-wireshark) | Apache, OpenSSL, curl, Wireshark, Ubuntu | Redes y TLS | 🟡 |
-| 12 | [Apache — Virtual Hosts y backups](./12-apache-vhost) | Apache, Ubuntu Desktop, VirtualBox | Administración de servidores | 🟢 |
-| 11 | [Seguridad web — OWASP Juice Shop](./11-owasp-juice-shop) | Nmap, Gobuster, Nikto, Burp Suite, Kali Linux | Pentesting web | 🟡 |
-| 10 | [Seguridad móvil en Android — Reversing](./10-android-reversing) | InsecureBankv2, APKTool, JADX-GUI, Kali Linux | Seguridad móvil | 🟡 |
+## Proyectos destacados
 
-**Nivel:** 🟢 básico · 🟡 intermedio · 🟠 intermedio-alto · 🔴 avanzado. Es una estimación propia de la dificultad relativa.
+| Proyecto | Resultado documentado | Relevancia para un SOC |
+|---|---|---|
+| [Active Directory](14-active-directory/README.md) | Dominio, DNS y dos clientes; evidencia de pertenencia y sesión de dominio | Contexto de identidades y autenticación Windows |
+| [HTTP frente a HTTPS](13-apache-ssl-wireshark/README.md) | Comparación de tráfico visible y cifrado en Wireshark | Interpretación de tráfico y límites de visibilidad |
+| [OWASP Juice Shop](11-owasp-juice-shop/README.md) | Bypass de autenticación documentado y caso de estudio | Comprender ataques para identificar señales defensivas |
 
-## 🧰 Habilidades demostradas
+## Laboratorios documentados
 
-| Área | Evidencia |
-|---|---|
-| Pentesting web (OWASP Top 10) | [Práctica 11](./11-owasp-juice-shop): reconocimiento, enumeración, análisis de JWT, SQL injection |
-| Seguridad móvil e ingeniería inversa | [Práctica 10](./10-android-reversing): decompilación y análisis estático de APK |
-| Análisis de tráfico de red | [Práctica 13](./13-apache-ssl-wireshark): captura y comparación HTTP vs HTTPS en Wireshark |
-| TLS y certificados | [Práctica 13](./13-apache-ssl-wireshark): certificado autofirmado con OpenSSL, handshake TLS |
-| Administración de servidores web | Prácticas [12](./12-apache-vhost) (Virtual Hosts y backups) y [13](./13-apache-ssl-wireshark) (HTTPS) |
-| Active Directory y entornos Windows | [Práctica 14](./14-active-directory): dominio, usuarios, equipos legados |
-| Documentación técnica | Informe en PDF por práctica, con metodología y capturas |
+| # | Laboratorio | Evidencia y alcance |
+|---|---|---|
+| 10 | [Android: análisis estático](10-android-reversing/README.md) | APKTool y JADX; observaciones separadas de vulnerabilidades confirmadas |
+| 11 | [Seguridad web](11-owasp-juice-shop/README.md) | Reconocimiento y autenticación en una aplicación vulnerable local |
+| 12 | [Apache: Virtual Hosts](12-apache-vhost/README.md) | Configuración y sitio funcionando; restauración todavía pendiente |
+| 13 | [Apache: TLS y Wireshark](13-apache-ssl-wireshark/README.md) | Capturas HTTP/HTTPS y certificado de laboratorio |
+| 14 | [Infraestructura Active Directory](14-active-directory/README.md) | Red interna, dominio, usuarios y clientes |
 
-## 🗺️ Ruta de aprendizaje
+Cada laboratorio incluye capturas extraídas de su informe original, explicación del resultado y enlace al PDF. Los PDF se conservan como registro histórico; las precisiones técnicas actuales están en los README y en las [notas de revisión](docs/REVISION-TECNICA.md).
 
-Laboratorios planificados, ordenados por nivel de dificultad. Aún **no** están realizados; las guías de trabajo se irán completando con informe propio.
+## Código y próximos pasos defensivos
 
-| # | Tema | Nivel | Estado |
-|---|---|---|---|
-| 1 | [Laboratorio virtual con VirtualBox y Kali](./01-laboratorio-virtual) | 🟢 | Planificada · base ya visible en la práctica 14 |
-| 2 | [Linux: línea de comandos y permisos](./02-linux-cli-permisos) | 🟢 | Planificada |
-| 3 | [Redes y análisis de paquetes](./03-redes-wireshark-tcpdump) | 🟢 | Planificada · Wireshark ya usado en la práctica 13 |
-| 4 | [Reconocimiento con Nmap](./04-nmap-reconocimiento) | 🟡 | Planificada · Nmap ya usado en la práctica 11 |
-| 5 | [Firewall con iptables y ufw](./05-firewall-iptables-ufw) | 🟡 | Planificada |
-| 6 | Cracking de contraseñas (Hashcat, John the Ripper) | 🟡 | Planificada |
-| 7 | [Criptografía con OpenSSL y GPG](./07-criptografia-openssl-gpg) | 🟡 | Planificada · OpenSSL ya usado en la práctica 13 |
-| 8 | Escaneo de vulnerabilidades (OpenVAS) | 🟠 | Planificada |
-| 9 | Explotación guiada con Metasploit | 🔴 | Planificada |
-| 15 | [Ataque y defensa sobre Active Directory](./15-ad-ataque-defensa) | 🔴 | Planificada · continúa la práctica 14 |
-| 16 | SIEM con Wazuh | 🟠 | Planificada · detectar los ataques de las prácticas 11 y 15 |
-| 17 | Escalada de privilegios en Linux | 🟠 | Planificada |
-| 18 | Forense y respuesta a incidentes (Autopsy, Volatility) | 🔴 | Planificada |
-| 19 | IDS con Suricata | 🟠 | Planificada |
+- [Analizador de logs Apache](tools/apache-log-analyzer/README.md): herramienta offline con muestra sintética, JSON/CSV y pruebas automatizadas. Sus indicadores orientan el triaje; no confirman ataques.
+- [Backup de configuración y contenido](tools/apache-backup/README.md): archivo de copia con inventario y hashes; prueba de restauración real pendiente.
+- [Detección con Wazuh](16-siem-wazuh/README.md): guía preparada para generar, recoger e investigar eventos. Laboratorio pendiente.
+- [Validación de GPO](14-active-directory/GPO-VALIDACION.md) y [hardening Apache](12-apache-vhost/VALIDACION.md): planes de ejecución con criterios verificables.
 
-## 📌 Sobre este repositorio
+## Cómo leer la evidencia
 
-Todo el contenido se desarrolla en entornos de laboratorio aislados (VirtualBox), sin conexión a redes de producción. Usuarios, contraseñas y nombres de dominio son ficticios y usados únicamente con fines educativos.
+**Documentado** significa que existe evidencia en el informe. **Propuesto** significa que hay código o una guía para probar. **Pendiente** significa que falta ejecutar o validar el resultado en las máquinas virtuales. No se presentan simulaciones ni datos sintéticos como incidentes reales.
 
-Contenido bajo licencia [MIT](./LICENSE).
+Las prácticas se realizan en entornos propios de laboratorio. Direcciones privadas, cuentas y tokens visibles en las capturas pertenecen a esas prácticas. La herramienta Python no necesita conectarse a sistemas externos.
+
+Contenido bajo licencia [MIT](LICENSE).

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+output/
+*.key
+*.pem
+*.evtx
+*.pcap
+*.pcapng
+*.tar.gz
+*.zip
+
