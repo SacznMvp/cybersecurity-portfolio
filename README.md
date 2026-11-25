@@ -6,7 +6,7 @@
 
 Soy estudiante de ciberseguridad y desarrollo laboratorios para comprender cómo funcionan los sistemas, reconocer riesgos y documentar su defensa. Mi objetivo profesional es incorporarme a un equipo SOC / Blue Team junior.
 
-**Estado:** 5 laboratorios con informe · 14 prácticas planificadas en la ruta original · 1 herramienta Python adicional.
+**Estado:** 6 laboratorios con informe · 13 prácticas planificadas en la ruta original · 1 herramienta Python adicional.
 
 ## Proyectos destacados
 
@@ -25,6 +25,7 @@ Soy estudiante de ciberseguridad y desarrollo laboratorios para comprender cómo
 | 12 | [Apache: Virtual Hosts](12-apache-vhost/README.md) | Configuración y sitio funcionando; restauración todavía pendiente |
 | 13 | [Apache: TLS y Wireshark](13-apache-ssl-wireshark/README.md) | Capturas HTTP/HTTPS y certificado de laboratorio |
 | 14 | [Infraestructura Active Directory](14-active-directory/README.md) | Red interna, dominio, usuarios y clientes |
+| 17 | [Escalada de privilegios en Linux](17-linux-privesc/README.md) | SUID, cron y permisos débiles en Metasploitable 2; mitigación y retest pendientes |
 
 Cada laboratorio incluye capturas extraídas de su informe original, explicación del resultado y enlace al PDF. Los PDF se conservan como registro histórico; las precisiones técnicas actuales están en los README y en las [notas de revisión](docs/REVISION-TECNICA.md).
 

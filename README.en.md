@@ -6,7 +6,7 @@
 
 I am a cybersecurity student building practical labs to understand systems, investigate risks and document defensive improvements. My career goal is a junior SOC / Blue Team role.
 
-**Status:** five labs with historical reports, fourteen planned labs in the original roadmap, and one additional Python analysis tool.
+**Status:** six labs with reports, thirteen planned labs in the original roadmap, and one additional Python analysis tool.
 
 ## Featured work
 
@@ -23,6 +23,7 @@ I am a cybersecurity student building practical labs to understand systems, inve
 - [12 — Apache Virtual Hosts](12-apache-vhost/README.md): working local site; operational backup/restore validation is pending.
 - [13 — Apache TLS](13-apache-ssl-wireshark/README.md): self-signed certificate and HTTP/HTTPS packet analysis.
 - [14 — Active Directory](14-active-directory/README.md): internal network, domain and client enrollment.
+- [17 — Linux privilege escalation](17-linux-privesc/README.md): SUID, cron and weak file permissions in Metasploitable 2; remediation and retesting remain pending.
 
 Lab READMEs and reports are currently in Spanish. Screenshots are extracted from the original PDFs, which are preserved as historical evidence. Current qualifications and corrections are recorded in the READMEs and [technical review notes](docs/REVISION-TECNICA.md).
 
