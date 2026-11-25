@@ -25,7 +25,7 @@ I am a cybersecurity student building practical labs to understand systems, inve
 - [14 — Active Directory](14-active-directory/README.md): internal network, domain and client enrollment.
 - [17 — Linux privilege escalation](17-linux-privesc/README.md): SUID, cron and weak file permissions in Metasploitable 2; remediation and retesting remain pending.
 
-Lab READMEs and reports are currently in Spanish. Screenshots are extracted from the original PDFs, which are preserved as historical evidence. Current qualifications and corrections are recorded in the READMEs and [technical review notes](docs/REVISION-TECNICA.md).
+Lab READMEs and reports are currently in Spanish. Screenshots are extracted from the original PDFs, which preserve the technical content; lab 17 adapts its cover and footers to the portfolio style. Current qualifications and corrections are recorded in the READMEs and [technical review notes](docs/REVISION-TECNICA.md).
 
 ## Tools and work in progress
 

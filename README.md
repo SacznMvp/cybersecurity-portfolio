@@ -27,7 +27,7 @@ Soy estudiante de ciberseguridad y desarrollo laboratorios para comprender cómo
 | 14 | [Infraestructura Active Directory](14-active-directory/README.md) | Red interna, dominio, usuarios y clientes |
 | 17 | [Escalada de privilegios en Linux](17-linux-privesc/README.md) | SUID, cron y permisos débiles en Metasploitable 2; mitigación y retest pendientes |
 
-Cada laboratorio incluye capturas extraídas de su informe original, explicación del resultado y enlace al PDF. Los PDF se conservan como registro histórico; las precisiones técnicas actuales están en los README y en las [notas de revisión](docs/REVISION-TECNICA.md).
+Cada laboratorio incluye capturas extraídas de su informe original, explicación del resultado y enlace al PDF. Los PDF conservan el contenido técnico como registro; la práctica 17 adapta la portada y los pies al estilo del portafolio; las precisiones técnicas actuales están en los README y en las [notas de revisión](docs/REVISION-TECNICA.md).
 
 ## Código y próximos pasos defensivos
 

@@ -32,7 +32,7 @@ Ruta de aprendizaje por nivel de dificultad: **6 laboratorios con informe y 13 p
 4. [Hardening y recuperación de Apache](12-apache-vhost/VALIDACION.md): comparar antes/después y probar una restauración en una VM desechable.
 5. [Ataque y defensa AD](15-ad-ataque-defensa/README.md): avanzar cuando la telemetría y los fundamentos estén comprobados.
 
-Los seis informes corresponden a las prácticas 10–14 y 17. El informe del Módulo 3, Práctica 4 se incorpora como práctica 17 por su temática: escalada de privilegios en Linux. Las guías sin ejecución documentada no aumentan este total. El analizador es una herramienta adicional, fuera de la numeración original de 19 prácticas.
+Los seis informes corresponden a las prácticas 10–14 y 17. El informe de escalada de privilegios en Linux corresponde a la práctica 17. Las guías sin ejecución documentada no aumentan este total. El analizador es una herramienta adicional, fuera de la numeración original de 19 prácticas.
 
 ## Criterio para marcar una práctica como completada
 

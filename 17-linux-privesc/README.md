@@ -2,11 +2,11 @@
 
 **Autor:** Saul Cabezas Guevara (SacznMvp) · **Nivel:** intermedio-alto · **Estado:** práctica documentada; remediación y retest pendientes.
 
-[Volver al portafolio](../README.md) · [Informe original completo (PDF, 11 páginas)](informe-escalada-linux.pdf)
+[Volver al portafolio](../README.md) · [Informe completo (PDF, 11 páginas)](informe-escalada-linux.pdf)
 
 Esta práctica estudia cómo una cuenta de servicio con pocos privilegios puede alcanzar privilegios de root mediante tres configuraciones inseguras en Metasploitable 2. El acceso inicial se obtiene mediante distcc con Metasploit y las comprobaciones posteriores distinguen el UID real del UID efectivo.
 
-El informe corresponde al **Módulo 3, Práctica 4** del curso. Aquí ocupa el **número 17 de la ruta del portafolio**; ambas numeraciones se refieren al mismo trabajo.
+Este informe ocupa el **número 17 de la ruta del portafolio**. La portada y los pies de página usan la identidad SACZN Cybersecurity.
 
 ## Entorno y alcance
 
@@ -19,7 +19,7 @@ El informe corresponde al **Módulo 3, Práctica 4** del curso. Aquí ocupa el *
 | Herramientas | Metasploit Framework 6.4.124-dev, Nmap 4.53, utilidades Linux y OpenSSL |
 | Cuenta inicial | `daemon`, UID 1 |
 
-Las direcciones y cuentas pertenecen al laboratorio. El informe no indica una fecha completa de ejecución ni todas las versiones del sistema operativo. El PDF se conserva sin modificaciones.
+Las direcciones y cuentas pertenecen al laboratorio. El informe no indica una fecha completa de ejecución ni todas las versiones del sistema operativo. La edición para el portafolio adapta únicamente la portada, los pies de página y los metadatos; conserva el contenido técnico y las capturas.
 
 ```mermaid
 flowchart LR
