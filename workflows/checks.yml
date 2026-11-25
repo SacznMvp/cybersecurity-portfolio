@@ -1,0 +1,26 @@
+name: Portfolio checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Test offline log analyzer
+        run: python -m unittest discover -s tools/apache-log-analyzer -p 'test_*.py' -v
+      - name: Test backup helper including symlinks
+        run: python -m unittest discover -s tools/apache-backup -p 'test_*.py' -v
+      - name: Check local Markdown links
+        run: python tools/check_links.py
