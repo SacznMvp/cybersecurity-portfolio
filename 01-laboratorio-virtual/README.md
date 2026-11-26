@@ -2,7 +2,7 @@
 
 **Estado: práctica documentada** · **Fecha:** 25 de noviembre de 2026
 
-[Volver al portafolio](../README.md) · [Registro de restauración](assets/restauracion.txt)
+[Volver al portafolio](../README.md) · [Informe y guía de validación (PDF)](informe-practica01.pdf) · [Registro de restauración](assets/restauracion.txt)
 
 ## Qué se comprobó
 
@@ -27,3 +27,12 @@ El [registro de arranque](assets/arranque.txt) recoge la versión de Guest Addit
 El [registro](assets/restauracion.txt) contiene los valores observados antes y después. La prueba comprueba la restauración de la configuración de la VM. El aislamiento se verificó en la configuración de adaptadores de VirtualBox. Queda pendiente comprobar las rutas y la conectividad desde el sistema invitado.
 
 La práctica reutiliza una copia enlazada de Kali que depende de la instantánea de origen. El despliegue de varias máquinas en otra red interna se documenta en la [práctica de Active Directory](../14-active-directory/README.md).
+
+## Qué falta para cerrar la práctica
+
+1. Conectar la copia de Kali y una copia de Ubuntu a `SACZN-Practica01-Aislada`.
+2. Asignar `192.168.77.10/24` a Kali y `192.168.77.20/24` a Ubuntu, con la puerta de enlace vacía.
+3. Confirmar que ambas responden al ping entre sí y revisar que carezcan de ruta externa.
+4. Guardar las capturas de configuración, terminal y la instantánea de la red validada.
+
+El [PDF](informe-practica01.pdf) incluye los comandos, los resultados esperados y la lista de evidencias.
