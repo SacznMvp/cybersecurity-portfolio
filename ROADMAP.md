@@ -4,11 +4,11 @@
 
 
 
-**6 prácticas con informe · 13 pendientes de ejecutar.**
+**7 prácticas con informe · 12 pendientes de ejecutar.**
 
 ## Prácticas con informe
 
-Los informes y sus evidencias se pueden abrir desde la [portada del portafolio](README.md#laboratorios-documentados). Corresponden a las prácticas 10–14 y 17. Algunas aún tienen verificaciones pendientes, como la restauración de Apache y las pruebas de remediación en Linux.
+Los informes y sus evidencias se pueden abrir desde la [portada del portafolio](README.md#laboratorios-documentados). Corresponden a las prácticas 1, 10–14 y 17. Algunas aún tienen verificaciones pendientes, como la restauración de Apache y las pruebas de remediación en Linux.
 
 ## Prácticas pendientes de ejecutar
 
@@ -16,7 +16,6 @@ Una guía preparada describe el trabajo previsto. El resultado se documenta cuan
 
 | # | Tema | Nivel | Estado |
 |---|---|---|---|
-| 1 | [Laboratorio virtual con VirtualBox y Kali](./01-laboratorio-virtual) | 🟢 | Planificada · base ya visible en la práctica 14 |
 | 2 | [Linux: línea de comandos y permisos](./02-linux-cli-permisos) | 🟢 | Planificada |
 | 3 | [Redes y análisis de paquetes](./03-redes-wireshark-tcpdump) | 🟢 | Planificada · Wireshark ya usado en la práctica 13 |
 | 4 | [Reconocimiento con Nmap](./04-nmap-reconocimiento) | 🟡 | Planificada · Nmap ya usado en la práctica 11 |
@@ -33,7 +32,7 @@ Una guía preparada describe el trabajo previsto. El resultado se documenta cuan
 
 ## Prioridad SOC / Blue Team
 
-1. Completar fundamentos de Linux, redes y firewall (prácticas 1–5).
+1. Continuar con fundamentos de Linux, redes y firewall (prácticas 2–5).
 2. [Detección con Wazuh](16-siem-wazuh/README.md): recoger eventos y validar una alerta con actividad controlada.
 3. [Analizador de logs](tools/apache-log-analyzer/README.md): ejecutar con logs del laboratorio y explicar límites y falsos positivos.
 4. [Hardening y recuperación de Apache](12-apache-vhost/VALIDACION.md): comparar antes/después y probar una restauración en una VM desechable.

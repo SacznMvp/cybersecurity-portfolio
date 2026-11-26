@@ -1,0 +1,2 @@
+00:00:40.530126 VMMDev: Guest Additions information report: Version 7.2.4 r170995 '7.2.4'
+Value: 6.18.12+kali-amd64

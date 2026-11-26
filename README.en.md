@@ -6,10 +6,11 @@
 
 I am a cybersecurity student building practical labs to understand systems, investigate risks and document defensive improvements. My career goal is a junior SOC / Blue Team role.
 
-**Status:** six labs with reports and thirteen planned labs.
+**Status:** seven labs with reports and twelve planned labs.
 
 ## Documented labs
 
+- [01 — VirtualBox and Kali lab](01-laboratorio-virtual/README.md): boot, internal network configuration and snapshot recovery.
 - [10 — Android static analysis](10-android-reversing/README.md): APKTool/JADX observations; exploitation claims require additional evidence.
 - [11 — Web security](11-owasp-juice-shop/README.md): scoped assessment and an authentication bypass case study.
 - [12 — Apache Virtual Hosts](12-apache-vhost/README.md): working local site; operational backup/restore validation is pending.

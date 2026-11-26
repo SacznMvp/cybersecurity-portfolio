@@ -1,43 +1,29 @@
-# Práctica 1 — Laboratorio Virtual con VirtualBox y Kali Linux
+# 01 · Laboratorio virtual con VirtualBox y Kali Linux
 
-> 🚧 **Estado: planificada.** Esta carpeta es la guía de trabajo; los resultados y el informe se agregarán cuando el laboratorio esté hecho.
+**Estado: práctica documentada** · **Fecha:** 25 de noviembre de 2026
 
-| Nivel | Requisitos previos |
+[Volver al portafolio](../README.md) · [Registro de restauración](assets/restauracion.txt)
+
+## Qué se comprobó
+
+Se arrancó Kali Linux en una copia de trabajo creada desde una instantánea existente. Se configuró una red interna dedicada en VirtualBox y se verificó que restaurar una instantánea recuperara la configuración anterior de RAM.
+
+| Componente | Configuración comprobada |
 |---|---|
-| 🟢 Básico | — |
+| Hipervisor | Oracle VirtualBox 7.2.8 |
+| Máquina de trabajo | SACZN-Practica01-Kali |
+| Recursos | 4 CPU virtuales y 4096 MiB de RAM |
+| Red | Adaptador 1 en la red interna SACZN-Practica01-Aislada y adaptadores 2–8 deshabilitados |
+| Integración | Guest Additions 7.2.4. Portapapeles y arrastrar y soltar deshabilitados |
 
-## 📌 Objetivo
+## Prueba de restauración
 
-Documentar el laboratorio base que se reutiliza en todas las prácticas: máquina atacante, red interna aislada y snapshots.
+1. Con la copia apagada, se creó la instantánea `P01-Base-4096MiB`.
+2. Se cambió la memoria de la copia a **3072 MiB** y se comprobó el valor.
+3. Al restaurar la instantánea, VirtualBox volvió a mostrar **4096 MiB**. Kali arrancó después de la restauración.
 
-La creación de máquinas virtuales y de la red interna `SacznRed` ya aparece, paso a paso, en la [práctica 14](../14-active-directory). Esta práctica la separa y la explica como base general.
+El [registro de arranque](assets/arranque.txt) recoge la versión de Guest Additions notificada por la VM y la versión del kernel informada por el invitado.
 
-## 🧰 Herramientas
+El [registro](assets/restauracion.txt) contiene los valores observados antes y después. La prueba comprueba la restauración de la configuración de la VM. El aislamiento se verificó en la configuración de adaptadores de VirtualBox. Queda pendiente comprobar las rutas y la conectividad desde el sistema invitado.
 
-| Componente | Rol |
-|---|---|
-| VirtualBox | Virtualización |
-| Kali Linux | Máquina atacante |
-| Red interna de VirtualBox | Aislamiento del laboratorio |
-
-## ⚙️ Fases previstas
-
-1. Instalar VirtualBox y comprobar que la virtualización está activa en la BIOS/UEFI.
-2. Crear la máquina virtual de Kali Linux desde su ISO y actualizar el sistema.
-3. Crear una red interna aislada, asignar direccionamiento y comprobar que no tiene salida a redes reales.
-4. Instalar los Guest Additions para integrar portapapeles y pantalla.
-5. Crear un snapshot limpio y practicar la restauración.
-
-## 📋 Qué documentar
-
-- Configuración de cada VM (RAM, CPU, disco, red)
-- Inventario de máquinas del laboratorio
-- Lista de snapshots y prueba de restauración
-
-## 🛡️ Buenas prácticas
-
-- Aislar siempre el laboratorio de redes de producción.
-- Usar snapshots para repetir pruebas sin reinstalar.
-
----
-> ⚠️ Nota: se realiza únicamente en un entorno de laboratorio aislado propio (VirtualBox), con fines educativos.
+La práctica reutiliza una copia enlazada de Kali que depende de la instantánea de origen. El despliegue de varias máquinas en otra red interna se documenta en la [práctica de Active Directory](../14-active-directory/README.md).

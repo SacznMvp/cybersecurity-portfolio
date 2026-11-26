@@ -1,0 +1,19 @@
+VirtualBox 7.2.8r173730
+Antes de restaurar:
+memory=3072
+Instantánea restaurada: P01-Base-4096MiB
+Después de restaurar:
+memory=4096
+cpus=4
+VMState="poweroff"
+intnet1="SACZN-Practica01-Aislada"
+nic1="intnet"
+nic2="none"
+nic3="none"
+nic4="none"
+nic5="none"
+nic6="none"
+nic7="none"
+nic8="none"
+clipboard="disabled"
+draganddrop="disabled"
