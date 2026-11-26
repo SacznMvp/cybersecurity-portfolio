@@ -4,11 +4,13 @@
 
 
 
-**7 prácticas con informe · 12 pendientes de ejecutar.**
+**19 prácticas · 6 casos con informe · 1 guía de entorno · 12 planificadas.**
 
 ## Prácticas con informe
 
-Los informes y sus evidencias se pueden abrir desde la [portada del portafolio](README.md#laboratorios-documentados). Corresponden a las prácticas 1, 10–14 y 17. Algunas aún tienen verificaciones pendientes, como la restauración de Apache y las pruebas de remediación en Linux.
+Los informes y sus evidencias se pueden abrir desde la [portada del portafolio](README.md#laboratorios-documentados). Corresponden a las prácticas 10–14 y 17. Algunas aún tienen verificaciones pendientes, como la restauración de Apache y las pruebas de remediación en Linux.
+
+La [práctica 1 de VirtualBox y Kali](01-laboratorio-virtual/README.md) documenta el entorno base. Queda como referencia para preparar las máquinas y recuperar instantáneas.
 
 ## Prácticas pendientes de ejecutar
 
@@ -32,8 +34,8 @@ Una guía preparada describe el trabajo previsto. El resultado se documenta cuan
 
 ## Prioridad SOC / Blue Team
 
-1. Continuar con fundamentos de Linux, redes y firewall (prácticas 2–5).
-2. [Detección con Wazuh](16-siem-wazuh/README.md): recoger eventos y validar una alerta con actividad controlada.
+1. [Detección con Wazuh](16-siem-wazuh/README.md): recoger eventos, validar una alerta con actividad controlada y documentar la investigación.
+2. Aplicar los fundamentos de Linux, redes y firewall (prácticas 2–5) allí donde aporten evidencia a un caso. Por ejemplo, usar permisos y registros de Linux al investigar una alerta, y capturas de red al explicar qué tráfico se observó.
 3. [Analizador de logs](tools/apache-log-analyzer/README.md): ejecutar con logs del laboratorio y explicar límites y falsos positivos.
 4. [Hardening y recuperación de Apache](12-apache-vhost/VALIDACION.md): comparar antes/después y probar una restauración en una VM desechable.
 5. [Ataque y defensa AD](15-ad-ataque-defensa/README.md): avanzar cuando la telemetría y los fundamentos estén comprobados.
