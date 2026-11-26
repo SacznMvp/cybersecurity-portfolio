@@ -4,7 +4,15 @@
 
 
 
-Ruta de aprendizaje por nivel de dificultad: **6 laboratorios con informe y 13 planificados**. Las prácticas 10–14 están enlazadas en la portada; la tabla mantiene la práctica 17 para mostrar su avance de planificada a documentada. Las guías pendientes no equivalen a prácticas realizadas.
+**6 prácticas con informe · 13 pendientes de ejecutar.**
+
+## Prácticas con informe
+
+Los informes y sus evidencias se pueden abrir desde la [portada del portafolio](README.md#laboratorios-documentados). Corresponden a las prácticas 10–14 y 17. Algunas aún tienen verificaciones pendientes, como la restauración de Apache y las pruebas de remediación en Linux.
+
+## Prácticas pendientes de ejecutar
+
+Una guía preparada describe el trabajo previsto. El resultado se documenta cuando se ejecuta la práctica y se reúne la evidencia.
 
 | # | Tema | Nivel | Estado |
 |---|---|---|---|
@@ -19,7 +27,6 @@ Ruta de aprendizaje por nivel de dificultad: **6 laboratorios con informe y 13 p
 | 9 | Explotación guiada con Metasploit | 🔴 | Planificada |
 | 15 | [Ataque y defensa sobre Active Directory](./15-ad-ataque-defensa) | 🔴 | Planificada · continúa la práctica 14 |
 | 16 | [SIEM con Wazuh](16-siem-wazuh/README.md) | 🟠 | Planificada · guía de recogida y triaje preparada |
-| 17 | [Escalada de privilegios en Linux](17-linux-privesc/README.md) | 🟠 | Documentada · tres vías en Metasploitable 2; remediación y retest pendientes |
 | 18 | Forense y respuesta a incidentes (Autopsy, Volatility) | 🔴 | Planificada |
 | 19 | IDS con Suricata | 🟠 | Planificada |
 
@@ -32,7 +39,6 @@ Ruta de aprendizaje por nivel de dificultad: **6 laboratorios con informe y 13 p
 4. [Hardening y recuperación de Apache](12-apache-vhost/VALIDACION.md): comparar antes/después y probar una restauración en una VM desechable.
 5. [Ataque y defensa AD](15-ad-ataque-defensa/README.md): avanzar cuando la telemetría y los fundamentos estén comprobados.
 
-Los seis informes corresponden a las prácticas 10–14 y 17. El informe de escalada de privilegios en Linux corresponde a la práctica 17. Las guías sin ejecución documentada no aumentan este total. El analizador es una herramienta adicional, fuera de la numeración original de 19 prácticas.
 
 ## Criterio para marcar una práctica como completada
 
