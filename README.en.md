@@ -8,16 +8,21 @@ I am a cybersecurity student building practical labs to understand systems, inve
 
 **Portfolio:** six case reports, one lab setup guide, and twelve planned labs.
 
-## Documented labs
+## Featured SOC cases
 
-- [10 — Android static analysis](10-android-reversing/README.md): APKTool/JADX observations; exploitation claims require additional evidence.
-- [11 — Web security](11-owasp-juice-shop/README.md): scoped assessment and an authentication bypass case study.
-- [12 — Apache Virtual Hosts](12-apache-vhost/README.md): working local site; operational backup/restore validation is pending.
-- [13 — Apache TLS](13-apache-ssl-wireshark/README.md): self-signed certificate and HTTP/HTTPS packet analysis.
-- [14 — Active Directory](14-active-directory/README.md): internal network, domain and client enrollment.
-- [17 — Linux privilege escalation](17-linux-privesc/README.md): SUID, cron and weak file permissions in Metasploitable 2; remediation and retesting remain pending.
+| Case | What to review |
+|---|---|
+| [14 · Active Directory](14-active-directory/README.md) | Domain, DNS and verified sessions, with links to proposed auditing and GPO work. |
+| [13 · TLS and Wireshark](13-apache-ssl-wireshark/README.md) | HTTP and HTTPS captures and their implications for network visibility. |
+| [17 · Linux permissions and privileges](17-linux-privesc/README.md) | UID and EUID evidence and a pending review of defensive controls. |
 
-Each lab links to its report, screenshots and results in Spanish. See the lab READMEs and [technical review notes](docs/REVISION-TECNICA.md) for details.
+**Next SOC case:** [Wazuh](16-siem-wazuh/README.md). Windows event collection and alert investigation in the lab.
+
+## Additional reports
+
+- [11 · Web security with OWASP Juice Shop](11-owasp-juice-shop/README.md).
+- [10 · Android static analysis](10-android-reversing/README.md).
+- [12 · Apache operations and recovery](12-apache-vhost/README.md). The deployment is documented and tools are available. Recovery in the VM remains pending.
 
 ## Python tools
 
@@ -26,7 +31,6 @@ Each lab links to its report, screenshots and results in Spanish. See the lab RE
 
 ## Pending work
 
-- [Wazuh](16-siem-wazuh/README.md): the guide is ready. Setup, event collection and alert investigation are pending.
 - [Active Directory GPOs](14-active-directory/GPO-VALIDACION.md) and [Apache hardening](12-apache-vhost/VALIDACION.md): validation plans for the lab VMs.
 - [Learning roadmap](ROADMAP.md): full list of planned labs.
 

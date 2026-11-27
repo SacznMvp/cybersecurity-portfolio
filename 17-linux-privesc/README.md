@@ -84,3 +84,7 @@ Las siguientes comprobaciones son **propuestas de detección y remediación**, n
 - Las severidades del PDF son cualitativas; no se ha calculado ni validado un vector CVSS.
 
 **Siguiente validación:** restaurar una instantánea limpia para cada vía, registrar el estado inicial, aplicar la corrección correspondiente y recoger evidencia de que la escalada deja de funcionar. Después, documentar la telemetría y las alertas defensivas obtenidas.
+
+## Fundamentos aplicados
+
+La [guía de terminal y permisos](../02-linux-cli-permisos/README.md) queda como material de apoyo. Para cerrar la parte defensiva, registrar propietario, grupo y permisos antes y después de la corrección, comparar con la configuración aprobada y verificar que una cuenta de prueba no tiene permiso de escritura sobre los archivos protegidos.

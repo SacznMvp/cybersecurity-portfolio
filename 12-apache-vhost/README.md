@@ -34,3 +34,7 @@ Página 9: sitio propio cargando en el dominio local.
 [Leer informe original](informe-practica12.pdf) · [Notas de revisión técnica](../docs/REVISION-TECNICA.md) · [Portafolio](../README.md)
 
 Las imágenes son extracciones de las páginas indicadas en su nombre, sin recrear resultados. El PDF histórico conserva su redacción original; las precisiones de este README deben leerse junto a él.
+
+## Operación y recuperación
+
+Este caso reúne el despliegue, la [herramienta de copia](../tools/apache-backup/README.md) y el [analizador de logs](../tools/apache-log-analyzer/README.md). Para ampliarlo, recoger registros de peticiones legítimas del laboratorio, generar un resumen con el analizador y restaurar el sitio en una VM de prueba. Comprobar el inventario, los hashes, la configuración de Apache y una respuesta del sitio restaurado. La [guía de firewall](../05-firewall-iptables-ufw/README.md) aporta una comprobación adicional de acceso cuando se valide en una VM.

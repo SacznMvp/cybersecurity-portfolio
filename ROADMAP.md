@@ -8,9 +8,21 @@
 
 ## Prácticas con informe
 
-Los informes y sus evidencias se pueden abrir desde la [portada del portafolio](README.md#laboratorios-documentados). Corresponden a las prácticas 10–14 y 17. Algunas aún tienen verificaciones pendientes, como la restauración de Apache y las pruebas de remediación en Linux.
+Los informes y sus evidencias se pueden abrir desde la [portada del portafolio](README.md#casos-destacados-para-soc). Corresponden a las prácticas 10–14 y 17. Algunas aún tienen verificaciones pendientes, como la restauración de Apache y las pruebas de remediación en Linux.
 
 La [práctica 1 de VirtualBox y Kali](01-laboratorio-virtual/README.md) documenta el entorno base. Queda como referencia para preparar las máquinas y recuperar instantáneas.
+
+## Temas integrados en casos
+
+| Tema | Caso donde aporta evidencia |
+|---|---|
+| 02 · Terminal y permisos de Linux | [17 · Permisos y privilegios](17-linux-privesc/README.md) |
+| 03 · Captura de red y 07 · Criptografía | [13 · TLS y Wireshark](13-apache-ssl-wireshark/README.md) |
+| 04 · Reconocimiento | [11 · Seguridad web](11-owasp-juice-shop/README.md) |
+| 05 · Firewall | [12 · Operación de Apache](12-apache-vhost/README.md) |
+| 15 · Auditoría de Active Directory | [14 · Active Directory](14-active-directory/README.md) |
+
+La tabla inferior conserva la numeración y los estados originales de los temas pendientes. Las actividades integradas pueden documentarse dentro del informe del caso correspondiente.
 
 ## Prácticas pendientes de ejecutar
 

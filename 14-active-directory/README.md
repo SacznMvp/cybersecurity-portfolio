@@ -51,3 +51,7 @@ Página 24: ambos clientes registrados como objetos de equipo en el dominio.
 [Leer informe original](informe-practica14.pdf) · [Notas de revisión técnica](../docs/REVISION-TECNICA.md) · [Portafolio](../README.md)
 
 Las imágenes son extracciones de las páginas indicadas en su nombre, sin recrear resultados. El PDF histórico conserva su redacción original; las precisiones de este README deben leerse junto a él.
+
+## Auditoría de identidades
+
+La ampliación de la práctica 15 queda integrada en este caso. La [guía de auditoría](../15-ad-ataque-defensa/README.md) y el [plan de GPO](GPO-VALIDACION.md) acompañan el informe del dominio. La siguiente evidencia es un evento de autenticación recogido en un cliente de prueba y una comprobación de que la política aplicada coincide con la esperada.

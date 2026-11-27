@@ -42,3 +42,7 @@ Página 11: petición HTTP y cabeceras legibles en la captura.
 [Leer informe original](informe-practica13.pdf) · [Notas de revisión técnica](../docs/REVISION-TECNICA.md) · [Portafolio](../README.md)
 
 Las imágenes son extracciones de las páginas indicadas en su nombre, sin recrear resultados. El PDF histórico conserva su redacción original; las precisiones de este README deben leerse junto a él.
+
+## Fundamentos aplicados
+
+La [guía de captura con Wireshark y tcpdump](../03-redes-wireshark-tcpdump/README.md) y la [guía de OpenSSL y GPG](../07-criptografia-openssl-gpg/README.md) quedan como material de apoyo. Para este caso, la evidencia principal es la comparación de tráfico y el certificado que usó el servidor. La prueba adicional es revisar los metadatos visibles de TLS y registrar los límites de lo observado.

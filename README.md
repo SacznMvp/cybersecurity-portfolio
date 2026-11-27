@@ -8,18 +8,21 @@ Soy estudiante de ciberseguridad y desarrollo laboratorios para comprender cómo
 
 **Portafolio:** 6 casos con informe · 1 guía de entorno · 12 prácticas planificadas.
 
-## Laboratorios documentados
+## Casos destacados para SOC
 
-| # | Laboratorio | Evidencia y alcance |
-|---|---|---|
-| 10 | [Android: análisis estático](10-android-reversing/README.md) | APKTool y JADX; observaciones separadas de vulnerabilidades confirmadas |
-| 11 | [Seguridad web](11-owasp-juice-shop/README.md) | Reconocimiento y autenticación en una aplicación vulnerable local |
-| 12 | [Apache: Virtual Hosts](12-apache-vhost/README.md) | Configuración y sitio funcionando; restauración todavía pendiente |
-| 13 | [Apache: TLS y Wireshark](13-apache-ssl-wireshark/README.md) | Capturas HTTP/HTTPS y certificado de laboratorio |
-| 14 | [Infraestructura Active Directory](14-active-directory/README.md) | Red interna, dominio, usuarios y clientes |
-| 17 | [Escalada de privilegios en Linux](17-linux-privesc/README.md) | SUID, cron y permisos débiles en Metasploitable 2; mitigación y retest pendientes |
+| Caso | Qué puedes revisar |
+|---|---|
+| [14 · Active Directory](14-active-directory/README.md) | Dominio, DNS y sesiones verificadas. El caso enlaza la ampliación de auditoría y GPO. |
+| [13 · TLS y Wireshark](13-apache-ssl-wireshark/README.md) | Capturas comparables de HTTP y HTTPS y análisis de visibilidad. |
+| [17 · Permisos y privilegios en Linux](17-linux-privesc/README.md) | Evidencias de UID y EUID y controles defensivos pendientes de validar. |
 
-Cada laboratorio enlaza a su documentación, evidencias y resultados. Las aclaraciones están en los README y en las [notas de revisión técnica](docs/REVISION-TECNICA.md).
+**Siguiente caso SOC:** [Wazuh](16-siem-wazuh/README.md). Recogida de eventos de Windows e investigación de una alerta en el laboratorio.
+
+## Otros informes
+
+- [11 · Seguridad web con OWASP Juice Shop](11-owasp-juice-shop/README.md).
+- [10 · Análisis estático de Android](10-android-reversing/README.md).
+- [12 · Operación y recuperación de Apache](12-apache-vhost/README.md). Despliegue documentado y herramientas disponibles. La restauración en la VM sigue pendiente.
 
 ## Herramientas Python
 
@@ -28,7 +31,6 @@ Cada laboratorio enlaza a su documentación, evidencias y resultados. Las aclara
 
 ## Pendiente de ejecutar o validar
 
-- [Wazuh](16-siem-wazuh/README.md): guía preparada. Falta instalar el laboratorio, recoger eventos e investigar una alerta.
 - [GPO de Active Directory](14-active-directory/GPO-VALIDACION.md) y [configuración segura de Apache](12-apache-vhost/VALIDACION.md): planes de validación en máquinas virtuales.
 - [Ruta de aprendizaje](ROADMAP.md): lista completa de prácticas pendientes.
 

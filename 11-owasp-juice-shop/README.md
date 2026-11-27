@@ -48,3 +48,7 @@ Página 19: sesión administrativa documentada después del bypass.
 [Leer informe original](informe-practica11.pdf) · [Notas de revisión técnica](../docs/REVISION-TECNICA.md) · [Portafolio](../README.md)
 
 Las imágenes son extracciones de las páginas indicadas en su nombre, sin recrear resultados. El PDF histórico conserva su redacción original; las precisiones de este README deben leerse junto a él.
+
+## Alcance e inventario
+
+La [guía de reconocimiento con Nmap](../04-nmap-reconocimiento/README.md) queda como material de apoyo. Usar el inventario documentado en el informe para explicar qué servicio entró en el alcance y qué se pudo comprobar en la aplicación de laboratorio.
