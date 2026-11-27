@@ -6,7 +6,7 @@
 
 I am a cybersecurity student building practical labs to understand systems, investigate risks and document defensive improvements. My career goal is a junior SOC / Blue Team role.
 
-**Portfolio:** six case reports, one lab setup guide, and twelve planned labs.
+**Portfolio:** seven case reports, one lab setup guide, and eleven planned labs.
 
 ## Featured SOC cases
 
@@ -14,9 +14,8 @@ I am a cybersecurity student building practical labs to understand systems, inve
 |---|---|
 | [14 · Active Directory](14-active-directory/README.md) | Domain, DNS and verified sessions, with links to proposed auditing and GPO work. |
 | [13 · TLS and Wireshark](13-apache-ssl-wireshark/README.md) | HTTP and HTTPS captures and their implications for network visibility. |
+| [16 · Wazuh SOC investigation](16-siem-wazuh/README.md) | Linux sudo event, alert 5402 and index verification. The Windows agent is pending. |
 | [17 · Linux permissions and privileges](17-linux-privesc/README.md) | UID and EUID evidence and a pending review of defensive controls. |
-
-**Next SOC case:** [Wazuh](16-siem-wazuh/README.md). Windows event collection and alert investigation in the lab.
 
 ## Additional reports
 

@@ -6,7 +6,7 @@
 
 Soy estudiante de ciberseguridad y desarrollo laboratorios para comprender cómo funcionan los sistemas, reconocer riesgos y documentar su defensa. Mi objetivo profesional es incorporarme a un equipo SOC / Blue Team.
 
-**Portafolio:** 6 casos con informe · 1 guía de entorno · 12 prácticas planificadas.
+**Portafolio:** 7 casos con informe · 1 guía de entorno · 11 prácticas planificadas.
 
 ## Casos destacados para SOC
 
@@ -14,9 +14,8 @@ Soy estudiante de ciberseguridad y desarrollo laboratorios para comprender cómo
 |---|---|
 | [14 · Active Directory](14-active-directory/README.md) | Dominio, DNS y sesiones verificadas. El caso enlaza la ampliación de auditoría y GPO. |
 | [13 · TLS y Wireshark](13-apache-ssl-wireshark/README.md) | Capturas comparables de HTTP y HTTPS y análisis de visibilidad. |
+| [16 · Investigación SOC con Wazuh](16-siem-wazuh/README.md) | Evento de sudo en Linux, alerta 5402 y verificación en el indexador. Agente Windows pendiente. |
 | [17 · Permisos y privilegios en Linux](17-linux-privesc/README.md) | Evidencias de UID y EUID y controles defensivos pendientes de validar. |
-
-**Siguiente caso SOC:** [Wazuh](16-siem-wazuh/README.md). Recogida de eventos de Windows e investigación de una alerta en el laboratorio.
 
 ## Otros informes
 

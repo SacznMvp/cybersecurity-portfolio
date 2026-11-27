@@ -4,11 +4,11 @@
 
 
 
-**19 prácticas · 6 casos con informe · 1 guía de entorno · 12 planificadas.**
+**19 prácticas · 7 casos con informe · 1 guía de entorno · 11 planificadas.**
 
 ## Prácticas con informe
 
-Los informes y sus evidencias se pueden abrir desde la [portada del portafolio](README.md#casos-destacados-para-soc). Corresponden a las prácticas 10–14 y 17. Algunas aún tienen verificaciones pendientes, como la restauración de Apache y las pruebas de remediación en Linux.
+Los informes y sus evidencias se pueden abrir desde la [portada del portafolio](README.md#casos-destacados-para-soc). Corresponden a las prácticas 10–14, 16 y 17. Algunas aún tienen verificaciones pendientes, como la restauración de Apache y las pruebas de remediación en Linux.
 
 La [práctica 1 de VirtualBox y Kali](01-laboratorio-virtual/README.md) documenta el entorno base. Queda como referencia para preparar las máquinas y recuperar instantáneas.
 
@@ -39,14 +39,13 @@ Una guía preparada describe el trabajo previsto. El resultado se documenta cuan
 | 8 | Escaneo de vulnerabilidades (OpenVAS) | 🟠 | Planificada |
 | 9 | Explotación guiada con Metasploit | 🔴 | Planificada |
 | 15 | [Ataque y defensa sobre Active Directory](./15-ad-ataque-defensa) | 🔴 | Planificada · continúa la práctica 14 |
-| 16 | [SIEM con Wazuh](16-siem-wazuh/README.md) | 🟠 | Planificada · guía de recogida y triaje preparada |
 | 18 | Forense y respuesta a incidentes (Autopsy, Volatility) | 🔴 | Planificada |
 | 19 | IDS con Suricata | 🟠 | Planificada |
 
 
 ## Prioridad SOC / Blue Team
 
-1. [Detección con Wazuh](16-siem-wazuh/README.md): recoger eventos, validar una alerta con actividad controlada y documentar la investigación.
+1. [Ampliar Wazuh a Windows](16-siem-wazuh/README.md#ampliación-pendiente--autenticación-de-windows). La alerta inicial de Linux ya está investigada e indexada. Falta correlacionar una alerta con el evento Windows de origen.
 2. Aplicar los fundamentos de Linux, redes y firewall (prácticas 2–5) allí donde aporten evidencia a un caso. Por ejemplo, usar permisos y registros de Linux al investigar una alerta, y capturas de red al explicar qué tráfico se observó.
 3. [Analizador de logs](tools/apache-log-analyzer/README.md): ejecutar con logs del laboratorio y explicar límites y falsos positivos.
 4. [Hardening y recuperación de Apache](12-apache-vhost/VALIDACION.md): comparar antes/después y probar una restauración en una VM desechable.

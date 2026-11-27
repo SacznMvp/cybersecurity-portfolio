@@ -1,0 +1,27 @@
+SACZN Cybersecurity | Práctica 16 | Extractos de evidencia
+Wazuh 4.14.11 | Caso Linux (agente local 000) | 26/11/2026, Lima
+Imagen oficial verificada con SHA-512. VM con 4 vCPU y 8192 MiB de RAM.
+Servicios verificados como activos: wazuh-manager, wazuh-indexer, wazuh-dashboard y filebeat.
+
+Evento observado en el journal (UTC):
+Nov 27 04:11:50 wazuh-server sudo[4222]: wazuh-user : PWD=/ ; USER=root ; COMMAND=/usr/bin/true
+
+Campos seleccionados de la alerta del manager:
+timestamp: 2026-11-27T04:11:50.863+0000
+id: 1795752710.10891
+rule.id: 5402
+rule.level: 3
+rule.description: Successful sudo to ROOT executed.
+agent.id: 000
+location: journald
+decoder.name: sudo
+data.command: /usr/bin/true
+
+Campos de la respuesta del indexador al buscar el mismo ID y la regla 5402:
+total: 1
+index: wazuh-alerts-4.x-2026.11.27
+id: 1795752710.10891
+rule.id: 5402
+agent.id: 000
+data.command: /usr/bin/true
+timestamp: 2026-11-27T04:11:50.863+0000

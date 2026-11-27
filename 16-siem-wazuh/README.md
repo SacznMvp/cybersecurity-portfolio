@@ -1,8 +1,26 @@
-# 16 · Detección y triaje con Wazuh
+# 16 · Investigación SOC con Wazuh
 
-**Estado: planificada.** Esta guía y la plantilla de investigación están preparadas; no se ha instalado Wazuh ni se han observado alertas como parte de esta ampliación.
+**Estado:** caso Linux ejecutado e indexado. La ampliación con agente Windows sigue pendiente.
 
-## Objetivo
+[Informe PDF](informe-practica16.pdf) · [Evidencia de la alerta y del índice](evidencia-sudo.txt) · [Portafolio](../README.md)
+
+## Caso documentado · Uso legítimo de sudo
+
+En una VM de laboratorio importada desde la imagen oficial Wazuh 4.14.11, se habilitaron los servicios del manager y del dashboard y se verificaron los cuatro componentes. La VM se conectó a una red solo anfitrión en VirtualBox.
+
+| Momento (Lima, UTC−5) | Evidencia |
+|---|---|
+| 26/11/2026, 23:11:50 | Se ejecutó `sudo -n /usr/bin/true`. El journal registró la cuenta de laboratorio, el usuario destino root y el comando. |
+| 26/11/2026, 23:11:50.863 | Wazuh creó la alerta **5402**, nivel **3**, desde `journald` para el agente local `000`. |
+| Consulta posterior | El indexador devolvió **un documento** con el mismo ID de alerta, regla, comando y marca temporal. |
+
+**Cierre de triaje:** actividad benigna esperada en el ejercicio. La regla detectó correctamente una ejecución con sudo. El comando `true` devuelve éxito y el operador sabía de antemano cuándo se ejecutaría. Ante una alerta equivalente fuera del laboratorio, conviene verificar el usuario, el comando, el equipo y si el cambio estaba autorizado antes de escalarla. La etiqueta ATT&CK de la regla describe una técnica asociada y el contexto determina la relevancia del evento.
+
+**Alcance:** esta prueba usa el agente local del manager. La recogida desde Windows, la comparación con el evento 4625 y la investigación desde el dashboard quedan como ampliación.
+
+## Ampliación pendiente · Autenticación de Windows
+
+### Objetivo
 
 Recoger eventos de un cliente Windows de laboratorio y demostrar el recorrido desde una acción controlada hasta su registro, alerta e investigación. Registrar versiones exactas al ejecutar; consultar requisitos y compatibilidad de la versión de Wazuh elegida antes de instalar.
 
@@ -52,6 +70,7 @@ Un 4625 informa de un inicio de sesión fallido, no confirma fuerza bruta. Crede
 
 ## Fuentes
 
+- [Wazuh: imagen oficial para VirtualBox](https://documentation.wazuh.com/current/deployment-options/virtual-machine/virtual-machine.html).
 - [Wazuh: recogida de logs por sistema operativo](https://documentation.wazuh.com/current/user-manual/capabilities/log-data-collection/configuration.html).
 - [Microsoft: evento 4625](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625).
 - [Microsoft: evento 4769](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4769).
