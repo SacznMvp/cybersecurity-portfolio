@@ -1,6 +1,6 @@
 # SACZN | Portafolio de ciberseguridad
 
-**SOC / Blue Team junior · Análisis de registros · Redes · Windows y Linux**
+**SOC / Blue Team · Análisis de registros · Redes · Windows y Linux**
 
 [English](README.en.md) · [Ruta de aprendizaje](ROADMAP.md) · [GitHub](https://github.com/SacznMvp) · [YouTube](https://www.youtube.com/@SACZNCybersecurity)
 
