@@ -1,10 +1,10 @@
-# SACZN | Cybersecurity portfolio
+# Saul Cabezas Guevara | Cybersecurity portfolio
 
 **Junior SOC / Blue Team focus · Log analysis · Networking · Windows and Linux**
 
 [Español](README.md) · [Learning roadmap (Spanish)](ROADMAP.md) · [GitHub](https://github.com/SacznMvp) · [YouTube](https://www.youtube.com/@SACZNCybersecurity)
 
-I am a cybersecurity student building practical labs to understand systems, investigate risks and document defensive improvements. My career goal is a junior SOC / Blue Team role.
+I am a cybersecurity student focused on SOC and Blue Team work. Through **SACZN Cybersecurity**, I share detection, network analysis and identity labs with documented results and evidence.
 
 **Portfolio:** seven case reports, one lab setup guide, and eleven planned labs.
 
@@ -12,9 +12,9 @@ I am a cybersecurity student building practical labs to understand systems, inve
 
 | Case | What to review |
 |---|---|
+| [16 · Wazuh SOC investigation](16-siem-wazuh/README.md) | Linux sudo event, alert 5402 and index verification. The Windows agent is pending. |
 | [14 · Active Directory](14-active-directory/README.md) | Domain, DNS and verified sessions, with links to proposed auditing and GPO work. |
 | [13 · TLS and Wireshark](13-apache-ssl-wireshark/README.md) | HTTP and HTTPS captures and their implications for network visibility. |
-| [16 · Wazuh SOC investigation](16-siem-wazuh/README.md) | Linux sudo event, alert 5402 and index verification. The Windows agent is pending. |
 | [17 · Linux permissions and privileges](17-linux-privesc/README.md) | UID and EUID evidence and a pending review of defensive controls. |
 
 ## Additional reports

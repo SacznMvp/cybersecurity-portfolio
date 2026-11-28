@@ -1,10 +1,10 @@
-# SACZN | Portafolio de ciberseguridad
+# Saul Cabezas Guevara | Portafolio de ciberseguridad
 
 **SOC / Blue Team · Análisis de registros · Redes · Windows y Linux**
 
 [English](README.en.md) · [Ruta de aprendizaje](ROADMAP.md) · [GitHub](https://github.com/SacznMvp) · [YouTube](https://www.youtube.com/@SACZNCybersecurity)
 
-Soy estudiante de ciberseguridad y desarrollo laboratorios para comprender cómo funcionan los sistemas, reconocer riesgos y documentar su defensa. Mi objetivo profesional es incorporarme a un equipo SOC / Blue Team.
+Soy estudiante de ciberseguridad con enfoque en SOC / Blue Team. En **SACZN Cybersecurity** comparto laboratorios de detección, análisis de tráfico e identidades. Cada caso incluye resultados y las evidencias disponibles.
 
 **Portafolio:** 7 casos con informe · 1 guía de entorno · 11 prácticas planificadas.
 
@@ -12,9 +12,9 @@ Soy estudiante de ciberseguridad y desarrollo laboratorios para comprender cómo
 
 | Caso | Qué puedes revisar |
 |---|---|
+| [16 · Investigación SOC con Wazuh](16-siem-wazuh/README.md) | Evento de sudo en Linux, alerta 5402 y verificación en el indexador. Agente Windows pendiente. |
 | [14 · Active Directory](14-active-directory/README.md) | Dominio, DNS y sesiones verificadas. El caso enlaza la ampliación de auditoría y GPO. |
 | [13 · TLS y Wireshark](13-apache-ssl-wireshark/README.md) | Capturas comparables de HTTP y HTTPS y análisis de visibilidad. |
-| [16 · Investigación SOC con Wazuh](16-siem-wazuh/README.md) | Evento de sudo en Linux, alerta 5402 y verificación en el indexador. Agente Windows pendiente. |
 | [17 · Permisos y privilegios en Linux](17-linux-privesc/README.md) | Evidencias de UID y EUID y controles defensivos pendientes de validar. |
 
 ## Otros informes
