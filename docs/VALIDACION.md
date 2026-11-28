@@ -23,7 +23,7 @@ No se ejecutaron Apache, Wazuh, Active Directory ni las nuevas configuraciones e
 
 ## Publicación y validación automática
 
-Las mejoras están publicadas en la rama `codex/portfolio-profesional`. El workflow de pruebas Python y enlaces Markdown terminó correctamente en GitHub Actions sobre el commit `c84bd90`.
+Las mejoras se publicaron primero en una rama de trabajo y luego se fusionaron en `main`. El workflow de pruebas Python y enlaces Markdown terminó correctamente en GitHub Actions sobre el commit `c84bd90`.
 
 [Ejecución verificada de Portfolio checks](https://github.com/SacznMvp/cybersecurity-portfolio/actions/runs/45551931890).
 
