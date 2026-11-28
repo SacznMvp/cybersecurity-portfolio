@@ -1,6 +1,6 @@
 # 17 · Escalada de privilegios en Linux
 
-**Autor:** Saul Cabezas Guevara (SacznMvp) · **Nivel:** intermedio-alto · **Estado:** práctica documentada; remediación y retest pendientes.
+**Autor:** Saúl Cabezas Guevara (SacznMvp) · **Nivel:** intermedio-alto · **Estado:** práctica documentada; remediación y retest pendientes.
 
 [Volver al portafolio](../README.md) · [Informe completo (PDF, 11 páginas)](informe-escalada-linux.pdf)
 
